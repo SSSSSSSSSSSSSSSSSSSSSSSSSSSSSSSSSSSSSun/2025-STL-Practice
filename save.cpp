@@ -1,4 +1,13 @@
-#include "save.h"
+//---------------------------------------------------------------
+// save.cpp								2025년 3월 11일
+// 
+// 한 학기 강의를 덧붙여 저장하는 함수이다.
+// --------------------------------------------------------------
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <filesystem>
+#include <chrono>
 
 void save(std::string_view fileName)
 {
