@@ -3458,3 +3458,1373 @@ int main()
 
 	save("main.cpp");
 }
+
+=================================================
+저장한 시간: 2025-03-20 오후 3:37:29 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+
+// [문제] binary mode로 열어 write 함수로 int 10만개를 기록한
+// 파일 "int 10만개를 바이너리모드 write함수로 기록"이 있다.
+// 읽어서 메모리에 모두 저장하라.
+// 메모리에 있는 값 중에서 가장 작은 것과 가장 큰 것을 찾아 화면에 출력하라.
+// 출력된 값을 답지에도 적어라.
+
+int main()
+{
+	std::ifstream in{ "int 10만개를 바이너리모드 write함수로 기록", std::ios::binary };
+
+	if (not in) return 20250320;
+
+	std::array<int, 10'0000> a;
+
+	in.read((char*)a.data(), sizeof(int) * a.size());
+
+	std::cout << *std::min_element(a.begin(), a.end()) << '\n';
+	std::cout << *std::max_element(a.begin(), a.end()) << '\n';
+
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 3:40:15 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+
+// [문제] binary mode로 열어 write 함수로 int 10만개를 기록한
+// 파일 "int 10만개를 바이너리모드 write함수로 기록"이 있다.
+// 읽어서 메모리에 모두 저장하라.
+// 메모리에 있는 값 중에서 가장 작은 것과 가장 큰 것을 찾아 화면에 출력하라.
+// 출력된 값을 답지에도 적어라.
+
+int main()
+{
+	std::ifstream in{ "int 10만개를 바이너리모드 write함수로 기록", std::ios::binary };
+
+	if (not in) return 20250320;
+
+	std::array<int, 10'0000> a;
+
+	in.read((char*)a.data(), sizeof(int) * a.size());
+
+	std::cout << *std::min_element(a.begin(), a.end()) << '\n';
+	std::cout << *std::max_element(a.begin(), a.end()) << '\n';
+
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 3:49:06 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+
+// [문제] binary mode로 열어 write 함수로 int 10만개를 기록한
+// 파일 "int 10만개를 바이너리모드 write함수로 기록"이 있다.
+// 읽어서 메모리에 모두 저장하라.
+// 메모리에 있는 값 중에서 가장 작은 것과 가장 큰 것을 찾아 화면에 출력하라.
+// 출력된 값을 답지에도 적어라.
+// constexpr란?
+
+int main()
+{
+	std::ifstream in{ "int 10만개를 바이너리모드 write함수로 기록", std::ios::binary };
+
+	if (not in) return 20250320;
+
+	std::array<int, 10'0000> a;
+	in.read( (char*)a.data(), sizeof(int) * a.size());
+
+	auto p = std::minmax_element(a.begin(), a.end());
+	std::cout << *p.first << '\n';
+	std::cout << *p.second << '\n';
+
+	//-2147431498
+	//2147393736
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 3:51:37 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <algorithm>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+
+// [문제] binary mode로 열어 write 함수로 int 10만개를 기록한
+// 파일 "int 10만개를 바이너리모드 write함수로 기록"이 있다.
+// 읽어서 메모리에 모두 저장하라.
+// 메모리에 있는 값 중에서 가장 작은 것과 가장 큰 것을 찾아 화면에 출력하라.
+// 출력된 값을 답지에도 적어라.
+// constexpr란?
+
+int main()
+{
+	std::ifstream in{ "int 10만개를 바이너리모드 write함수로 기록", std::ios::binary };
+
+	if (not in) return 20250320;
+
+	std::array<int, 10'0000> a;
+	in.read( (char*)a.data(), sizeof(int) * a.size());
+
+	auto [minAddress, maxAddress] = std::minmax_element(a.begin(), a.end());
+	std::cout << *minAddress << '\n';
+	std::cout << *maxAddress << '\n';
+
+	//-2147431498
+	//2147393736
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:13:58 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <string>
+#include <random>
+#include <print>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] class Dog 객체 10만개를 binary 모드로 연 파일 "Dog 10만마리"에 저장하였다.
+// 객체 크기 그대로 write 함수를 사용하여 저장하였다.
+
+std::default_random_engine dre;
+std::uniform_int_distribution<int> uid{ 'a', 'z' };
+
+class Dog {
+public:
+	Dog() {				// name(15글자고정, 임의의 소문자)과 id를 초기화
+		id = ++sid;
+
+		for (int i = 0; i < 15; ++i) {
+			name += uid(dre);
+		}
+	}
+
+	void show() const {
+		std::println("[{:7}] - { }", id, name);
+	}
+
+private:
+	std::string name;
+	int id;
+
+	static int sid;		// scope - local, life time - global
+};
+
+int Dog::sid{};
+
+int main()
+{
+	Dog dog;
+	
+	//dog.show();
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:14:42 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <string>
+#include <random>
+#include <print>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] class Dog 객체 10만개를 binary 모드로 연 파일 "Dog 10만마리"에 저장하였다.
+// 객체 크기 그대로 write 함수를 사용하여 저장하였다.
+
+std::default_random_engine dre;
+std::uniform_int_distribution<int> uid{ 'a', 'z' };
+
+class Dog {
+public:
+	Dog() {				// name(15글자고정, 임의의 소문자)과 id를 초기화
+		id = ++sid;
+
+		for (int i = 0; i < 15; ++i) {
+			name += uid(dre);
+		}
+	}
+
+	void show() const {
+		//std::println("[{:7}] - { }", id, name);
+	}
+
+private:
+	std::string name;
+	int id;
+
+	static int sid;		// scope - local, life time - global
+};
+
+int Dog::sid{};
+
+int main()
+{
+	Dog dog;
+	
+	dog.show();
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:15:15 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <string>
+#include <random>
+#include <print>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] class Dog 객체 10만개를 binary 모드로 연 파일 "Dog 10만마리"에 저장하였다.
+// 객체 크기 그대로 write 함수를 사용하여 저장하였다.
+
+std::default_random_engine dre;
+std::uniform_int_distribution<int> uid{ 'a', 'z' };
+
+class Dog {
+public:
+	Dog() {				// name(15글자고정, 임의의 소문자)과 id를 초기화
+		id = ++sid;
+
+		for (int i = 0; i < 15; ++i) {
+			name += uid(dre);
+		}
+	}
+
+	void show() const {
+		std::println("[{:7}] - ", id);
+	}
+
+private:
+	std::string name;
+	int id;
+
+	static int sid;		// scope - local, life time - global
+};
+
+int Dog::sid{};
+
+int main()
+{
+	Dog dog;
+	
+	dog.show();
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:15:41 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <string>
+#include <random>
+#include <print>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] class Dog 객체 10만개를 binary 모드로 연 파일 "Dog 10만마리"에 저장하였다.
+// 객체 크기 그대로 write 함수를 사용하여 저장하였다.
+
+std::default_random_engine dre;
+std::uniform_int_distribution<int> uid{ 'a', 'z' };
+
+class Dog {
+public:
+	Dog() {				// name(15글자고정, 임의의 소문자)과 id를 초기화
+		id = ++sid;
+
+		for (int i = 0; i < 15; ++i) {
+			name += uid(dre);
+		}
+	}
+
+	void show() const {
+		std::println("[{:7}] - ", id, name);
+	}
+
+private:
+	std::string name;
+	int id;
+
+	static int sid;		// scope - local, life time - global
+};
+
+int Dog::sid{};
+
+int main()
+{
+	Dog dog;
+	
+	dog.show();
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:15:59 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <string>
+#include <random>
+#include <print>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] class Dog 객체 10만개를 binary 모드로 연 파일 "Dog 10만마리"에 저장하였다.
+// 객체 크기 그대로 write 함수를 사용하여 저장하였다.
+
+std::default_random_engine dre;
+std::uniform_int_distribution<int> uid{ 'a', 'z' };
+
+class Dog {
+public:
+	Dog() {				// name(15글자고정, 임의의 소문자)과 id를 초기화
+		id = ++sid;
+
+		for (int i = 0; i < 15; ++i) {
+			name += uid(dre);
+		}
+	}
+
+	void show() const {
+		std::println("[{:7}] - {:}", id, name);
+	}
+
+private:
+	std::string name;
+	int id;
+
+	static int sid;		// scope - local, life time - global
+};
+
+int Dog::sid{};
+
+int main()
+{
+	Dog dog;
+	
+	dog.show();
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:16:59 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <string>
+#include <random>
+#include <print>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] class Dog 객체 10만개를 binary 모드로 연 파일 "Dog 10만마리"에 저장하였다.
+// 객체 크기 그대로 write 함수를 사용하여 저장하였다.
+
+std::default_random_engine dre;
+std::uniform_int_distribution<int> uid{ 'a', 'z' };
+
+class Dog {
+public:
+	Dog() {				// name(15글자고정, 임의의 소문자)과 id를 초기화
+		id = ++sid;
+
+		for (int i = 0; i < 15; ++i) {
+			name += uid(dre);
+		}
+	}
+
+	void show() const {
+		std::println("[{:7}] - {}", id, name);
+	}
+
+private:
+	std::string name;
+	int id;
+
+	static int sid;		// scope - local, life time - global
+};
+
+int Dog::sid{};
+
+int main()
+{
+	Dog dog;
+	
+	dog.show();
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:18:25 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <string>
+#include <random>
+#include <print>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] class Dog 객체 10만개를 binary 모드로 연 파일 "Dog 10만마리"에 저장하였다.
+// 객체 크기 그대로 write 함수를 사용하여 저장하였다.
+
+std::default_random_engine dre;
+std::uniform_int_distribution<int> uid{ 'a', 'z' };
+
+class Dog {
+public:
+	Dog() {				// name(15글자고정, 임의의 소문자)과 id를 초기화
+		id = ++sid;
+
+		for (int i = 0; i < 15; ++i) {
+			name += uid(dre);
+		}
+	}
+
+	void show() const {
+		std::println("[{:7}] - {}", id, name);
+	}
+
+private:
+	std::string name;
+	int id;
+
+	static int sid;		// scope - local, life time - global
+};
+
+int Dog::sid{};
+
+int main()
+{
+
+	for (int i = 0; i < 10'0000; ++i) {
+		Dog dog;
+		dog.show();
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:21:35 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <string>
+#include <random>
+#include <print>
+#include <fstream>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] class Dog 객체 10만개를 binary 모드로 연 파일 "Dog 10만마리"에 저장하였다.
+// 객체 크기 그대로 write 함수를 사용하여 저장하였다.
+
+std::default_random_engine dre;
+std::uniform_int_distribution<int> uid{ 'a', 'z' };
+
+class Dog {
+public:
+	Dog() {				// name(15글자고정, 임의의 소문자)과 id를 초기화
+		id = ++sid;
+
+		for (int i = 0; i < 15; ++i) {
+			name += uid(dre);
+		}
+	}
+
+	void show() const {
+		std::println("[{:7}] - {}", id, name);
+	}
+
+private:
+	std::string name;
+	int id;
+
+	static int sid;		// scope - local, life time - global
+};
+
+int Dog::sid{};
+
+int main()
+{
+	std::ofstream out{ "Dog 10만마리", std::ios::binary };
+
+	for (int i = 0; i < 10'0000; ++i) {
+		Dog dog;
+		out.write((char*)&dog, sizeof(dog));
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:31:58 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <array>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] e-class에서 다운 받은 파일 "Dog 10만마리"는 binary 모드로 열었고,
+// 위에 적은 class Dog를 스트림의 write 함수를 사용하여 메모리 그대로 저장하였다.
+// Dog 객체 10만개를 메모리에 저장하라.
+// 가장 마지막 객체의 정보를 cout를 사용하여 화면에 출력하라. (10분)
+
+class Dog {
+public:
+	void show() const {
+		std::cout << "id : " << id << " / name : " << name << '\n';
+	}
+	
+private:
+	std::string name;
+	int id;
+
+	static int sid;		// scope - local, life time - global
+};
+
+int main()
+{
+	std::ifstream in{ "Dog 10만마리", std::ios::binary };
+	
+	if (not in)
+		return -1;
+
+	//std::array<Dog, 10'0000> arr;
+
+	//in.read((char*)arr.data(), sizeof(Dog) * arr.size());
+	
+	//arr.end()->show();
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:32:46 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <array>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] e-class에서 다운 받은 파일 "Dog 10만마리"는 binary 모드로 열었고,
+// 위에 적은 class Dog를 스트림의 write 함수를 사용하여 메모리 그대로 저장하였다.
+// Dog 객체 10만개를 메모리에 저장하라.
+// 가장 마지막 객체의 정보를 cout를 사용하여 화면에 출력하라. (10분)
+
+class Dog {
+public:
+	void show() const {
+		std::cout << "id : " << id << " / name : " << name << '\n';
+	}
+	
+private:
+	std::string name;
+	int id;
+
+	static int sid;		// scope - local, life time - global
+};
+
+std::array<Dog, 10'0000> arr;
+int main()
+{
+	std::ifstream in{ "Dog 10만마리", std::ios::binary };
+	
+	if (not in)
+		return -1;
+
+	
+
+	in.read((char*)arr.data(), sizeof(Dog) * arr.size());
+	
+	arr.end()->show();
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:32:57 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <array>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] e-class에서 다운 받은 파일 "Dog 10만마리"는 binary 모드로 열었고,
+// 위에 적은 class Dog를 스트림의 write 함수를 사용하여 메모리 그대로 저장하였다.
+// Dog 객체 10만개를 메모리에 저장하라.
+// 가장 마지막 객체의 정보를 cout를 사용하여 화면에 출력하라. (10분)
+
+class Dog {
+public:
+	void show() const {
+		std::cout << "id : " << id << " / name : " << name << '\n';
+	}
+	
+private:
+	std::string name;
+	int id;
+
+	static int sid;		// scope - local, life time - global
+};
+
+std::array<Dog, 10'0000> arr;
+int main()
+{
+	std::ifstream in{ "Dog 10만마리", std::ios::binary };
+	
+	if (not in)
+		return -1;
+
+	
+
+	in.read((char*)arr.data(), sizeof(Dog) * arr.size());
+	
+	arr.end()->show();
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:33:36 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <array>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] e-class에서 다운 받은 파일 "Dog 10만마리"는 binary 모드로 열었고,
+// 위에 적은 class Dog를 스트림의 write 함수를 사용하여 메모리 그대로 저장하였다.
+// Dog 객체 10만개를 메모리에 저장하라.
+// 가장 마지막 객체의 정보를 cout를 사용하여 화면에 출력하라. (10분)
+
+class Dog {
+public:
+	void show() const {
+		std::cout << "id : " << id << " / name : " << name << '\n';
+	}
+	
+private:
+	std::string name;
+	int id;
+
+	static int sid;		// scope - local, life time - global
+};
+
+std::array<Dog, 1'0000> arr;
+int main()
+{
+	std::ifstream in{ "Dog 10만마리", std::ios::binary };
+	
+	if (not in)
+		return -1;
+
+	
+
+	in.read((char*)arr.data(), sizeof(Dog) * arr.size());
+	
+	arr.end()->show();
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:34:27 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <array>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] e-class에서 다운 받은 파일 "Dog 10만마리"는 binary 모드로 열었고,
+// 위에 적은 class Dog를 스트림의 write 함수를 사용하여 메모리 그대로 저장하였다.
+// Dog 객체 10만개를 메모리에 저장하라.
+// 가장 마지막 객체의 정보를 cout를 사용하여 화면에 출력하라. (10분)
+
+class Dog {
+public:
+	void show() const {
+		std::cout << "id : " << id << " / name : " << name << '\n';
+	}
+	
+private:
+	std::string name;
+	int id;
+
+	static int sid;		// scope - local, life time - global
+};
+
+int main()
+{
+	std::ifstream in{ "Dog 10만마리", std::ios::binary };
+	
+	if (not in)
+		return -1;
+
+	std::array<Dog, 1'0000> arr;
+
+	in.read((char*)arr.data(), sizeof(Dog) * arr.size());
+	
+	arr.end()->show();
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:34:48 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <array>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] e-class에서 다운 받은 파일 "Dog 10만마리"는 binary 모드로 열었고,
+// 위에 적은 class Dog를 스트림의 write 함수를 사용하여 메모리 그대로 저장하였다.
+// Dog 객체 10만개를 메모리에 저장하라.
+// 가장 마지막 객체의 정보를 cout를 사용하여 화면에 출력하라. (10분)
+
+class Dog {
+public:
+	void show() const {
+		std::cout << "id : " << id << " / name : " << name << '\n';
+	}
+	
+private:
+	std::string name;
+	int id;
+
+	static int sid;		// scope - local, life time - global
+};
+
+int main()
+{
+	std::ifstream in{ "Dog 10만마리", std::ios::binary };
+	
+	if (not in)
+		return -1;
+
+	std::array<Dog, 1'0000> arr;
+
+	in.read((char*)arr.data(), sizeof(Dog) * arr.size());
+	
+	arr.end()->show();
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:35:07 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <array>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] e-class에서 다운 받은 파일 "Dog 10만마리"는 binary 모드로 열었고,
+// 위에 적은 class Dog를 스트림의 write 함수를 사용하여 메모리 그대로 저장하였다.
+// Dog 객체 10만개를 메모리에 저장하라.
+// 가장 마지막 객체의 정보를 cout를 사용하여 화면에 출력하라. (10분)
+
+class Dog {
+public:
+	void show() const {
+		std::cout << "id : " << id << " / name : " << name << '\n';
+	}
+	
+private:
+	std::string name;
+	int id;
+
+	static int sid;		// scope - local, life time - global
+};
+
+int main()
+{
+	std::ifstream in{ "Dog 10만마리", std::ios::binary };
+	
+	if (not in)
+		return -1;
+
+	std::array<Dog, 10> arr;
+
+	in.read((char*)arr.data(), sizeof(Dog) * arr.size());
+	
+	arr.end()->show();
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:35:38 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <array>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] e-class에서 다운 받은 파일 "Dog 10만마리"는 binary 모드로 열었고,
+// 위에 적은 class Dog를 스트림의 write 함수를 사용하여 메모리 그대로 저장하였다.
+// Dog 객체 10만개를 메모리에 저장하라.
+// 가장 마지막 객체의 정보를 cout를 사용하여 화면에 출력하라. (10분)
+
+class Dog {
+public:
+	void show() const {
+		std::cout << "id : " << id << " / name : " << name << '\n';
+	}
+	
+private:
+	std::string name;
+	int id;
+
+	static int sid;		// scope - local, life time - global
+};
+
+int main()
+{
+	std::ifstream in{ "Dog 10만마리", std::ios::binary };
+	
+	if (not in)
+		return -1;
+
+	std::array<Dog, 1'0000> arr;
+
+	in.read((char*)arr.data(), sizeof(Dog) * arr.size());
+	
+	arr.end()->show();
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:40:23 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <array>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] e-class에서 다운 받은 파일 "Dog 10만마리"는 binary 모드로 열었고,
+// 위에 적은 class Dog를 스트림의 write 함수를 사용하여 메모리 그대로 저장하였다.
+// Dog 객체 10만개를 메모리에 저장하라.
+// 가장 마지막 객체의 정보를 cout를 사용하여 화면에 출력하라. (10분)
+
+class Dog {
+public:
+	void show() const {
+		std::cout << "id : " << id << " / name : " << name << '\n';
+	}
+	
+private:
+	std::string name;
+	int id;
+
+	static int sid;		// scope - local, life time - global
+};
+
+int main()
+{
+	std::ifstream in{ "Dog 10만마리", std::ios::binary };
+
+	if (not in)
+		return -1;
+
+	Dog dog;
+
+	int count{};
+	while (in.read((char*)&dog, sizeof(Dog))) {
+		++count;
+	}
+
+	std::cout << "읽은 객체 수 - " << count << '\n';
+	/*std::ifstream in{ "Dog 10만마리", std::ios::binary };
+	
+	if (not in)
+		return -1;
+
+	std::array<Dog, 10'0000> arr;
+
+	in.read((char*)arr.data(), sizeof(Dog) * arr.size());
+	
+	arr.end()->show();*/
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:48:10 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <array>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] e-class에서 다운 받은 파일 "Dog 10만마리"는 binary 모드로 열었고,
+// 위에 적은 class Dog를 스트림의 write 함수를 사용하여 메모리 그대로 저장하였다.
+// Dog 객체 10만개를 메모리에 저장하라.
+// 가장 마지막 객체의 정보를 cout를 사용하여 화면에 출력하라. (10분)
+
+class Dog {
+public:
+	
+private:
+	std::string name;
+	int id;
+
+	static int sid;		// scope - local, life time - global
+
+
+	friend std::ostream& operator<< (std::ostream& os, const Dog& dog) {
+		return os << dog.name << " - " << dog.id << '\n';
+	}
+};
+
+std::array<Dog, 10'0000> dogs;
+
+int main()
+{
+	std::ifstream in{ "Dog 10만마리", std::ios::binary };
+
+	if (not in)
+		return -1;
+
+	Dog dog;
+
+	int count{};
+	
+	in.read((char*)dogs.data(), dogs.size() * sizeof(Dog));
+	
+	std::cout << dogs[0] << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:48:41 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <array>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] e-class에서 다운 받은 파일 "Dog 10만마리"는 binary 모드로 열었고,
+// 위에 적은 class Dog를 스트림의 write 함수를 사용하여 메모리 그대로 저장하였다.
+// Dog 객체 10만개를 메모리에 저장하라.
+// 가장 마지막 객체의 정보를 cout를 사용하여 화면에 출력하라. (10분)
+
+class Dog {
+public:
+	
+private:
+	std::string name;
+	int id;
+
+	static int sid;		// scope - local, life time - global
+
+
+	friend std::ostream& operator<< (std::ostream& os, const Dog& dog) {
+		return os << dog.name << " - " << dog.id << '\n';
+	}
+};
+
+std::array<Dog, 10'0000> dogs;
+
+int main()
+{
+	std::ifstream in{ "Dog 10만마리", std::ios::binary };
+
+	if (not in)
+		return -1;
+
+	Dog dog;
+
+	int count{};
+	
+	in.read((char*)dogs.data(), dogs.size() * sizeof(Dog));
+	
+	std::cout << dogs.back() << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 4:54:16 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <array>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] e-class에서 다운 받은 파일 "Dog 10만마리"는 binary 모드로 열었고,
+// 위에 적은 class Dog를 스트림의 write 함수를 사용하여 메모리 그대로 저장하였다.
+// 
+
+class Dog {
+public:
+	
+private:
+	std::string name;
+	int id;
+
+	static int sid;		// scope - local, life time - global
+
+
+	friend std::ostream& operator<< (std::ostream& os, const Dog& dog) {
+		return os << dog.name << " - " << dog.id;
+	}
+
+	friend void operator>> (std::istream& is, Dog& dog) {
+		is.read((char*)&dog, sizeof(Dog));
+	}
+};
+
+std::array<Dog, 10'0000> dogs;
+
+int main()
+{
+	std::ifstream in{ "Dog 10만마리", std::ios::binary };
+	if (not in)
+		return -1;
+
+	// [문제] 다음 코드가 수정없이 실행되도록 필요한 코드를 class Dog에 추가하라.
+	for (Dog& dog : dogs) {
+		in >> dog;
+		std::cout << dog << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-20 오후 5:03:02 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+//------------------------------------------------------------------
+// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <array>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] e-class에서 다운 받은 파일 "Dog 10만마리"는 binary 모드로 열었고,
+// 위에 적은 class Dog를 스트림의 write 함수를 사용하여 메모리 그대로 저장하였다.
+
+class Dog {
+public:
+	
+private:
+	std::string name;
+	int id;
+
+	static int sid;		// scope - local, life time - global
+
+
+	friend std::ostream& operator<< (std::ostream& os, const Dog& dog) {
+		return os << dog.name << " - " << dog.id;
+	}
+
+	friend std::istream& operator>> (std::istream& is, Dog& dog) {
+		return is.read((char*)&dog, sizeof(Dog));
+	}
+};
+
+std::array<Dog, 10'0000> dogs;
+
+int main()
+{
+	std::ifstream in{ "Dog 10만마리", std::ios::binary };
+	if (not in)
+		return -1;
+
+	// [문제] 다음 코드가 수정없이 실행되도록 필요한 코드를 class Dog에 추가하라.
+	for (Dog& dog : dogs) {
+		in >> dog;						// operator>>(in, dog)
+		std::cout << dog << '\n';
+	}
+
+	save("main.cpp");
+}
