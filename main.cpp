@@ -1,12 +1,13 @@
 //------------------------------------------------------------------
-// 2025 STL 화56목78	3월 20일 화요일					(3주 2일)
+// 2025 STL 화56목78	3월 25일 화요일					(4주 1일)
 //------------------------------------------------------------------
-// 많은 수의 자료를 처리하기 - Dog를 읽고 쓴다, read/write
+// 동적할당과 smart pointer - RAII
 //------------------------------------------------------------------
 // VS 버전 - 17.13 이상
 // Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
 #include <iostream>
-
+#include <fstream>
+#include <algorithm>
 #include "save.h"
 // using namespace std;			// 우리는 이렇게 하면 안된다
 // constexpr란?
@@ -20,9 +21,22 @@
 // 
 // 다음 시간 이거 조금 더 설명하고 smart pointer로 직행 - 왜 RAII가 중요한가
 //------------------------------------------------------------------
+// [문제] "main.cpp"의 내용 중에 소문자를 모두 대문자로 바꿔 "main upper.cpp"에 저장하시오
+//------------------------------------------------------------------
+
+
 
 int main()
 {
+	std::ifstream in{ "main.cpp" };
+	if (not in)
+		return -1557;
 
+	std::ofstream out{ "main upper.cpp" };
+	
+	std::transform(std::istreambuf_iterator<char>(in), {},
+		std::ostreambuf_iterator<char>(out),
+		[](char c) { return toupper(c); });
+	
 	save("main.cpp");
 }
