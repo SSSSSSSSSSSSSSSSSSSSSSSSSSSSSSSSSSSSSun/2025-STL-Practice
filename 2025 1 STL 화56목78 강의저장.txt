@@ -6017,3 +6017,2016 @@ int main()
 	
 	save("main.cpp");
 }
+
+=================================================
+저장한 시간: 2025-03-27 오후 3:48:22 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// qsort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	for (int i = 0; i < 1000;++i) {
+		std::print("{:8}", (*upArray)[i]);
+	}
+	
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 3:54:05 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// qsort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	for (int num : *upArray | std::ranges::views::take(100)) {
+		std::print("{:8}", num);
+	}
+	
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 3:54:56 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// qsort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	for (int num : *upArray | std::ranges::views::take(5)
+							| std::ranges::views::take(1) ) {
+		std::print("{:8}", num);
+	}
+	
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 3:55:14 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// qsort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	for (int num : *upArray | std::ranges::views::take(5)
+							| std::ranges::views::take(1) ) {
+		std::print("{:8}", num);
+	}
+	
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 3:55:28 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// qsort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	for (int num : *upArray | std::ranges::views::take(5) ) {
+		std::print("{:8}", num);
+	}
+	
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 4:17:05 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// qsort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+// 바꿔야 하면 1
+// // 이미 정렬 상태이면 -1
+// 둘이 정렬 기준상 동일한 값이면 0
+int ascendingOrder(const void* a, const void* b)
+{
+	int* p = (int*)a;
+	int* q = (int*)b;
+
+	if (*p < *q)
+		return -1;
+	else if (*p > *q)
+		return 1;
+
+	return 0;
+
+	//const int* p = (const int*)a;
+	//int* pp = (int*)b;
+
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	// qsort로 오름차순 정렬
+	std::qsort(upArray->data(), upArray->size(), sizeof(std::array<int, 1'000'000>::value_type), ascendingOrder);
+
+
+	// 앞에서 부터 1000개를 화면 출력
+
+	for (int num : *upArray | std::ranges::views::take(1000) ) {
+		std::print("{:8}", num);
+	}
+	
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 4:17:49 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// qsort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+// 바꿔야 하면 1
+// // 이미 정렬 상태이면 -1
+// 둘이 정렬 기준상 동일한 값이면 0
+int ascendingOrder(const void* a, const void* b)
+{
+	int* p = (int*)a;
+	int* q = (int*)b;
+
+	if (*p < *q)
+		return -1;
+	else if (*p > *q)
+		return 1;
+
+	return 0;
+
+	//const int* p = (const int*)a;
+	//int* pp = (int*)b;
+
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	// qsort로 오름차순 정렬
+	std::qsort(upArray->data(), upArray->size(), sizeof(std::array<int, 1'000'000>::value_type), ascendingOrder);
+
+
+	// 앞에서 부터 1000개를 화면 출력
+
+	for (int num : *upArray | std::ranges::views::take(3000) ) {
+		std::print("{:8}", num);
+	}
+	
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 4:19:44 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// qsort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+// 바꿔야 하면 1
+// // 이미 정렬 상태이면 -1
+// 둘이 정렬 기준상 동일한 값이면 0
+int ascendingOrder(const void* a, const void* b)
+{
+	int* p = (int*)a;
+	int* q = (int*)b;
+
+	if (*p < *q)
+		return -1;
+	else if (*p > *q)
+		return 1;
+
+	return 0;
+
+	//const int* p = (const int*)a;
+	//int* pp = (int*)b;
+
+}
+
+int descendingOrder(const void* a, const void* b)
+{
+	int* p = (int*)a;
+	int* q = (int*)b;
+
+	if (*p > *q)
+		return -1;
+	else if (*p < *q)
+		return 1;
+
+	return 0;
+
+	//const int* p = (const int*)a;
+	//int* pp = (int*)b;
+
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	// qsort로 내림차순 정렬
+	std::qsort(upArray->data(), upArray->size(), sizeof(std::array<int, 1'000'000>::value_type), descendingOrder);
+
+
+	// 앞에서 부터 1000개를 화면 출력
+
+	for (int num : *upArray | std::ranges::views::take(3000) ) {
+		std::print("{:8}", num);
+	}
+	
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 4:21:08 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// qsort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+// 바꿔야 하면 1
+// // 이미 정렬 상태이면 -1
+// 둘이 정렬 기준상 동일한 값이면 0
+int ascendingOrder(const void* a, const void* b)
+{
+	int* p = (int*)a;
+	int* q = (int*)b;
+
+	if (*p < *q)
+		return -1;
+	else if (*p > *q)
+		return 1;
+
+	return 0;
+
+	//const int* p = (const int*)a;
+	//int* pp = (int*)b;
+
+}
+
+int descendingOrder(const void* a, const void* b)
+{
+	return *(int*)a - *(int*)b;
+
+	//const int* p = (const int*)a;
+	//int* pp = (int*)b;
+
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	// qsort로 내림차순 정렬
+	std::qsort(upArray->data(), upArray->size(), sizeof(std::array<int, 1'000'000>::value_type), descendingOrder);
+
+
+	// 앞에서 부터 1000개를 화면 출력
+
+	for (int num : *upArray | std::ranges::views::take(3000) ) {
+		std::print("{:8}", num);
+	}
+	
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 4:21:19 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// qsort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+// 바꿔야 하면 1
+// // 이미 정렬 상태이면 -1
+// 둘이 정렬 기준상 동일한 값이면 0
+int ascendingOrder(const void* a, const void* b)
+{
+	int* p = (int*)a;
+	int* q = (int*)b;
+
+	if (*p < *q)
+		return -1;
+	else if (*p > *q)
+		return 1;
+
+	return 0;
+
+	//const int* p = (const int*)a;
+	//int* pp = (int*)b;
+
+}
+
+int descendingOrder(const void* a, const void* b)
+{
+	return *(int*)b - *(int*)a;
+
+	//const int* p = (const int*)a;
+	//int* pp = (int*)b;
+
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	// qsort로 내림차순 정렬
+	std::qsort(upArray->data(), upArray->size(), sizeof(std::array<int, 1'000'000>::value_type), descendingOrder);
+
+
+	// 앞에서 부터 1000개를 화면 출력
+
+	for (int num : *upArray | std::ranges::views::take(3000) ) {
+		std::print("{:8}", num);
+	}
+	
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 4:27:24 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// qsort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+// 바꿔야 하면 1
+// // 이미 정렬 상태이면 -1
+// 둘이 정렬 기준상 동일한 값이면 0
+int ascendingOrder(const void* a, const void* b)
+{
+	int* p = (int*)a;
+	int* q = (int*)b;
+
+	if (*p < *q)
+		return -1;
+	else if (*p > *q)
+		return 1;
+
+	return 0;
+
+	//const int* p = (const int*)a;
+	//int* pp = (int*)b;
+
+}
+
+int descendingOrder(const void* a, const void* b)
+{
+	return *(int*)b - *(int*)a;
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	int (* orderStandard)(const void*, const void*) = ascendingOrder;
+
+	std::qsort(upArray->data(), upArray->size(), sizeof(int), orderStandard);
+
+
+	// 앞에서 부터 1000개를 화면 출력
+
+	for (int num : *upArray | std::ranges::views::take(3000) ) {
+		std::print("{:8}", num);
+	}
+	
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 4:46:38 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include <algorithm>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// C++ 언어의 sort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	// 정렬
+	std::sort(upArray->begin(), upArray->end());
+
+
+	// 앞에서 부터 1000개를 화면 출력
+	for (int num : *upArray | std::ranges::views::take(3000) ) {
+		std::print("{:8}", num);
+	}
+	
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 4:48:58 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include <algorithm>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// C++ 언어의 sort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	// 정렬
+	std::sort(upArray->rbegin(), upArray->rend());
+
+
+	// 앞에서 부터 1000개를 화면 출력
+	for (int num : *upArray | std::ranges::views::take(3000) ) {
+		std::print("{:8}", num);
+	}
+	
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 4:54:40 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include <algorithm>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// C++ 언어의 sort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+bool ascendingOrder(const int a, const int b)
+{
+	return a < b;
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	// 정렬
+	std::sort(upArray->begin(), upArray->end(),ascendingOrder );			// 디폴트 정렬 operator <
+
+
+	// 앞에서 부터 1000개를 화면 출력
+	for (int num : *upArray | std::ranges::views::take(3000) ) {
+		std::print("{:8}", num);
+	}
+	
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 4:57:19 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// C++ 언어의 sort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+bool ascendingOrder(const int a, const int b)
+{
+	return a < b;
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	// 정렬에 걸리는 시간 측정
+	auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+	std::sort(upArray->begin(), upArray->end(),ascendingOrder );			// 디폴트 정렬 operator <
+	auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+	// 앞에서 부터 1000개를 화면 출력
+	for (int num : *upArray | std::ranges::views::take(3000) ) {
+		std::print("{:8}", num);
+	}
+	
+	std::cout << e - b << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 4:57:49 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// C++ 언어의 sort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+bool ascendingOrder(const int a, const int b)
+{
+	return a < b;
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	// 정렬에 걸리는 시간 측정
+	auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+	std::sort(upArray->begin(), upArray->end(),ascendingOrder );			// 디폴트 정렬 operator <
+	auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+	// 앞에서 부터 1000개를 화면 출력
+	for (int num : *upArray | std::ranges::views::take(3000) ) {
+		std::print("{:8}", num);
+	}
+	
+	std::cout << "경과시간(duration) - " << e - b << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 4:58:23 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// C++ 언어의 sort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+bool ascendingOrder(const int a, const int b)
+{
+	return a < b;
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	// 정렬에 걸리는 시간 측정
+	auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+	std::sort(upArray->begin(), upArray->end(),ascendingOrder );			// 디폴트 정렬 operator <
+	auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+	// 앞에서 부터 1000개를 화면 출력
+	for (int num : *upArray | std::ranges::views::take(3000) ) {
+		std::print("{:8}", num);
+	}
+	
+	std::cout << "경과시간(duration) - " << e - b << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 4:58:48 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// C++ 언어의 sort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+bool ascendingOrder(const int a, const int b)
+{
+	return a < b;
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	// 정렬에 걸리는 시간 측정
+	auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+	std::sort(upArray->begin(), upArray->end(),ascendingOrder );			// 디폴트 정렬 operator <
+	auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+	// 앞에서 부터 1000개를 화면 출력
+	for (int num : *upArray | std::ranges::views::take(3000) ) {
+		std::print("{:8}", num);
+	}
+	
+	std::cout << "경과시간(duration) - " << e - b << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 4:58:53 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// C++ 언어의 sort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+bool ascendingOrder(const int a, const int b)
+{
+	return a < b;
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	// 정렬에 걸리는 시간 측정
+	auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+	std::sort(upArray->begin(), upArray->end(),ascendingOrder );			// 디폴트 정렬 operator <
+	auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+	// 앞에서 부터 1000개를 화면 출력
+	for (int num : *upArray | std::ranges::views::take(3000) ) {
+		std::print("{:8}", num);
+	}
+	
+	std::cout << "경과시간(duration) - " << e - b << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 4:58:58 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// C++ 언어의 sort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+bool ascendingOrder(const int a, const int b)
+{
+	return a < b;
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	// 정렬에 걸리는 시간 측정
+	auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+	std::sort(upArray->begin(), upArray->end(),ascendingOrder );			// 디폴트 정렬 operator <
+	auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+	// 앞에서 부터 1000개를 화면 출력
+	for (int num : *upArray | std::ranges::views::take(3000) ) {
+		std::print("{:8}", num);
+	}
+	
+	std::cout << "경과시간(duration) - " << e - b << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 4:59:07 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// C++ 언어의 sort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+bool ascendingOrder(const int a, const int b)
+{
+	return a < b;
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	// 정렬에 걸리는 시간 측정
+	auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+	std::sort(upArray->begin(), upArray->end(),ascendingOrder );			// 디폴트 정렬 operator <
+	auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+	// 앞에서 부터 1000개를 화면 출력
+	for (int num : *upArray | std::ranges::views::take(3000) ) {
+		std::print("{:8}", num);
+	}
+	
+	std::cout << "경과시간(duration) - " << e - b << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 4:59:12 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// C++ 언어의 sort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+bool ascendingOrder(const int a, const int b)
+{
+	return a < b;
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	// 정렬에 걸리는 시간 측정
+	auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+	std::sort(upArray->begin(), upArray->end(),ascendingOrder );			// 디폴트 정렬 operator <
+	auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+	// 앞에서 부터 1000개를 화면 출력
+	for (int num : *upArray | std::ranges::views::take(3000) ) {
+		std::print("{:8}", num);
+	}
+	
+	std::cout << "경과시간(duration) - " << e - b << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 5:00:09 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// C++ 언어의 sort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+bool ascendingOrder(const int a, const int b)
+{
+	return a < b;
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	// 정렬에 걸리는 시간 측정
+	auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+	std::sort(upArray->begin(), upArray->end(),ascendingOrder );			// 디폴트 정렬 operator <
+	auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+	// 앞에서 부터 1000개를 화면 출력
+	for (int num : *upArray | std::ranges::views::take(3000) ) {
+		std::print("{:8}", num);
+	}
+	
+	std::cout << "경과시간(duration) - " << e - b << '\n';
+	std::cout << "경과시간(ms) - " << (e - b) / 100 << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 5:00:47 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// C++ 언어의 sort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+bool ascendingOrder(const int a, const int b)
+{
+	return a < b;
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	// 정렬에 걸리는 시간 측정
+	auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+	std::sort(upArray->begin(), upArray->end(),ascendingOrder );			// 디폴트 정렬 operator <
+	auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+	// 앞에서 부터 1000개를 화면 출력
+	for (int num : *upArray | std::ranges::views::take(3000) ) {
+		std::print("{:8}", num);
+	}
+	
+	std::cout << "경과시간(duration) - " << e - b << '\n';
+	std::cout << "경과시간(ms) - " << std::chrono::duration_cast<std::chrono::milliseconds>(e - b) << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 5:01:12 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// C++ 언어의 sort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+bool ascendingOrder(const int a, const int b)
+{
+	return a < b;
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	for (int& num : *upArray) {
+		num = uid(dre);
+	}
+
+	// 정렬에 걸리는 시간 측정
+	auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+	std::sort(upArray->begin(), upArray->end(),ascendingOrder );			// 디폴트 정렬 operator <
+	auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+	// 앞에서 부터 1000개를 화면 출력
+	for (int num : *upArray | std::ranges::views::take(3000) ) {
+		std::print("{:8}", num);
+	}
+	
+	std::cout << "경과시간(duration) - " << e - b << '\n';
+	std::cout << "경과시간(ms) - " << std::chrono::duration_cast<std::chrono::milliseconds>(e - b) << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 5:04:17 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// C++ 언어의 sort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+bool ascendingOrder(const int a, const int b)
+{
+	return a < b;
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	{
+		for (int& num : *upArray) {
+			num = uid(dre);
+		}
+		// 정렬에 걸리는 시간 측정
+		auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+		std::sort(upArray->begin(), upArray->end(), ascendingOrder);			// 디폴트 정렬 operator <
+		auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+		for (int num : *upArray | std::ranges::views::take(3000)) {
+			std::print("{:8}", num);
+		}
+		std::cout << "경과시간(ms) - " << std::chrono::duration_cast<std::chrono::milliseconds>(e - b) << '\n';
+	}
+
+	{	// 내림차순으로 정렬
+		for (int& num : *upArray) {
+			num = uid(dre);
+		}
+		// 정렬에 걸리는 시간 측정
+		auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+		std::sort(upArray->begin(), upArray->end(),[](const int a, const int b) {
+			return a > b;
+			});
+		auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+		for (int num : *upArray | std::ranges::views::take(3000)) {
+			std::print("{:8}", num);
+		}
+		std::cout << "경과시간(ms) - " << std::chrono::duration_cast<std::chrono::milliseconds>(e - b) << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 5:04:55 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// C++ 언어의 sort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+bool ascendingOrder(const int a, const int b)
+{
+	return a < b;
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	{
+		for (int& num : *upArray) {
+			num = uid(dre);
+		}
+		// 정렬에 걸리는 시간 측정
+		auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+		std::sort(upArray->begin(), upArray->end(), ascendingOrder);			// 디폴트 정렬 operator <
+		auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+		/*for (int num : *upArray | std::ranges::views::take(3000)) {
+			std::print("{:8}", num);
+		}*/
+		std::cout << "경과시간(ms) - " << std::chrono::duration_cast<std::chrono::milliseconds>(e - b) << '\n';
+	}
+
+	{	// 내림차순으로 정렬
+		for (int& num : *upArray) {
+			num = uid(dre);
+		}
+		// 정렬에 걸리는 시간 측정
+		auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+		std::sort(upArray->begin(), upArray->end(),[](const int a, const int b) {
+			return a > b;
+			});
+		auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+		/*for (int num : *upArray | std::ranges::views::take(3000)) {
+			std::print("{:8}", num);
+		}*/
+		std::cout << "경과시간(ms) - " << std::chrono::duration_cast<std::chrono::milliseconds>(e - b) << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 5:05:24 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// C++ 언어의 sort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+bool ascendingOrder(const int a, const int b)
+{
+	return a < b;
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	{
+		for (int& num : *upArray) {
+			num = uid(dre);
+		}
+		// 정렬에 걸리는 시간 측정
+		auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+		std::sort(upArray->begin(), upArray->end(), [](const int a, const int b) {
+			return a < b;
+			});			// 디폴트 정렬 operator <
+		auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+		/*for (int num : *upArray | std::ranges::views::take(3000)) {
+			std::print("{:8}", num);
+		}*/
+		std::cout << "경과시간(ms) - " << std::chrono::duration_cast<std::chrono::milliseconds>(e - b) << '\n';
+	}
+
+	{	// 내림차순으로 정렬
+		for (int& num : *upArray) {
+			num = uid(dre);
+		}
+		// 정렬에 걸리는 시간 측정
+		auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+		std::sort(upArray->begin(), upArray->end(),[](const int a, const int b) {
+			return a > b;
+			});
+		auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+		/*for (int num : *upArray | std::ranges::views::take(3000)) {
+			std::print("{:8}", num);
+		}*/
+		std::cout << "경과시간(ms) - " << std::chrono::duration_cast<std::chrono::milliseconds>(e - b) << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 5:07:00 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// C++ 언어의 sort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+bool ascendingOrder(const int a, const int b)
+{
+	return a < b;
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	{
+		for (int& num : *upArray) {
+			num = uid(dre);
+		}
+		// 정렬에 걸리는 시간 측정
+		auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+		std::sort(upArray->begin(), upArray->end(), ascendingOrder);			// 디폴트 정렬 operator <
+		auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+		/*for (int num : *upArray | std::ranges::views::take(3000)) {
+			std::print("{:8}", num);
+		}*/
+		std::cout << "경과시간(ms) - " << std::chrono::duration_cast<std::chrono::milliseconds>(e - b) << '\n';
+	}
+
+	{	// 내림차순으로 정렬
+		for (int& num : *upArray) {
+			num = uid(dre);
+		}
+		// 정렬에 걸리는 시간 측정
+		auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+		std::sort(upArray->begin(), upArray->end(),[](const int a, const int b) {
+			return a > b;
+			});
+		auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+		/*for (int num : *upArray | std::ranges::views::take(3000)) {
+			std::print("{:8}", num);
+		}*/
+		std::cout << "경과시간(ms) - " << std::chrono::duration_cast<std::chrono::milliseconds>(e - b) << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 5:07:13 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// C++ 언어의 sort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+bool ascendingOrder(const int a, const int b)
+{
+	return a < b;
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	{
+		for (int& num : *upArray) {
+			num = uid(dre);
+		}
+		// 정렬에 걸리는 시간 측정
+		auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+		std::sort(upArray->begin(), upArray->end(), ascendingOrder);			// 디폴트 정렬 operator <
+		auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+		/*for (int num : *upArray | std::ranges::views::take(3000)) {
+			std::print("{:8}", num);
+		}*/
+		std::cout << "경과시간(ms) - " << std::chrono::duration_cast<std::chrono::milliseconds>(e - b) << '\n';
+	}
+
+	{	// 내림차순으로 정렬
+		for (int& num : *upArray) {
+			num = uid(dre);
+		}
+		// 정렬에 걸리는 시간 측정
+		auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+		std::sort(upArray->begin(), upArray->end(),[](const int a, const int b) {
+			return a > b;
+			});
+		auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+		/*for (int num : *upArray | std::ranges::views::take(3000)) {
+			std::print("{:8}", num);
+		}*/
+		std::cout << "경과시간(ms) - " << std::chrono::duration_cast<std::chrono::milliseconds>(e - b) << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-03-27 오후 5:10:11 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	3월 27일 목요일					(4주 2일)
+//------------------------------------------------------------------
+// Callable type - 호출가능한 타입
+// 1. 함수
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+#include <iostream>
+#include <random>
+#include <array>
+#include <memory>
+#include <print>
+#include <ranges>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+
+// [문제] 랜덤 int 1000만개를 메모리에 저장하자.
+// 랜덤 int 값의 범위는 [0, 10'000'000) ===> 0부터 9'999'999까지 값을 갖도록
+// C++ 언어의 sort를 사용하여 오름차순으로 정렬하라
+// 정렬한 결과를 앞에서 부터 1000개만 화면에 출력하라
+
+std::default_random_engine dre;
+
+bool ascendingOrder(const int a, const int b)
+{
+	return a < b;
+}
+
+int main()
+{
+	std::uniform_int_distribution uid{ 0,9'999'999 };
+	std::unique_ptr<std::array<int, 10'000'000>> upArray = std::make_unique<std::array<int, 10'000'000>>();
+
+	{
+		for (int& num : *upArray) {
+			num = uid(dre);
+		}
+		// 정렬에 걸리는 시간 측정
+		auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+		std::sort(upArray->begin(), upArray->end(), ascendingOrder);			// 디폴트 정렬 operator <
+		auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+		/*for (int num : *upArray | std::ranges::views::take(3000)) {
+			std::print("{:8}", num);
+		}*/
+		std::cout << "경과시간(ms) - " << std::chrono::duration_cast<std::chrono::milliseconds>(e - b) << '\n';
+	}
+
+	{	// 내림차순으로 정렬
+		for (int& num : *upArray) {
+			num = uid(dre);
+		}
+		// 정렬에 걸리는 시간 측정
+		auto b = std::chrono::high_resolution_clock::now();						// 스톱워치 시작
+		std::sort<std::array<int,10'000'000>::iterator>(upArray->begin(), upArray->end(),[](const int a, const int b) {
+			return a > b;
+			});
+		auto e = std::chrono::high_resolution_clock::now();						// 스톱워치 끝
+
+		/*for (int num : *upArray | std::ranges::views::take(3000)) {
+			std::print("{:8}", num);
+		}*/
+		std::cout << "경과시간(ms) - " << std::chrono::duration_cast<std::chrono::milliseconds>(e - b) << '\n';
+	}
+
+	save("main.cpp");
+}
