@@ -1,0 +1,102 @@
+#include <memory>
+#include <iostream>
+#include <print>
+#include "STRING.h"
+
+bool watching{ false };													// 2025. 04. 08.
+
+STRING::STRING()														// 2025. 04. 08.
+	: id{ ++szGlobalID }, length {}
+{
+
+	if (watching) {
+		std::println("[{:8}] {:16}, 자원수 - {:<10}",
+			id, "디폴트생성", length, (void*)this, (void*)pStr.get());
+		std::println("           메모리 - {:<20}, 자원메모리 - {:<20} ",
+			(void*)this, (void*)pStr.get());
+	}
+}
+
+STRING::~STRING()
+{
+	if (watching) {
+		std::println("[{:8}] {:16}, 자원수 - {:<10}",
+			id, "소멸자", length, (void*)this, (void*)pStr.get());
+		std::println("           메모리 - {:<20}, 자원메모리 - {:<20} ",
+			(void*)this, (void*)pStr.get());
+	}
+}
+
+STRING::STRING(const char* in)					// [] -> *로 collapsing
+	: id{ ++szGlobalID }, length{ strlen(in) }
+{
+	pStr.reset();
+	pStr = std::make_unique<char[]>(length);
+
+	memcpy(pStr.get(), in, length);				// DMA
+
+	if (watching) {
+		std::println("[{:8}] {:16}, 자원수 - {:<10}",
+			id, "생성자(char *)", length, (void*)this, (void*)pStr.get());
+		std::println("           메모리 - {:<20}, 자원메모리 - {:<20} ",
+			(void*)this, (void*)pStr.get());
+	}
+}
+
+STRING::STRING(const STRING& origin)									// 2025. 04. 08.
+	: id{ ++szGlobalID }, length{ origin.length }
+{
+	pStr = std::make_unique<char[]>(length);
+
+	memcpy(pStr.get(), origin.pStr.get(), length);
+
+	if (watching) {
+		std::println("[{:8}] {:16}, 자원수 - {:<10}",
+			id, "복사생성자", length, (void*)this, (void*)pStr.get());
+		std::println("           메모리 - {:<20}, 자원메모리 - {:<20} ",
+			(void*)this, (void*)pStr.get());
+	}
+}
+
+size_t STRING::size() const
+{
+	return length;
+}
+
+STRING& STRING::operator= (const STRING& other)							// 2025. 04. 08.
+{
+	if (this == &other) {
+		return *this;
+	}
+
+	length = other.length;
+
+	pStr.release();					// p.reset()과 다른 점?
+	pStr = std::make_unique<char[]>(length);
+
+	memcpy(pStr.get(), other.pStr.get(), length);
+
+	/*pStr.reset();
+	pStr = std::make_unique<char[]>(length);
+
+	memcpy(pStr.get(), other.pStr.get(), length);*/
+
+	if (watching) {
+		std::println("[{:8}] {:16}, 자원수 - {:<10}",
+			id, "복사할당연산자", length, (void*)this, (void*)pStr.get());
+		std::println("           메모리 - {:<20}, 자원메모리 - {:<20} ",
+			(void*)this, (void*)pStr.get());
+	}
+
+	return *this;
+}
+
+std::ostream& operator<< (std::ostream& os, const STRING& str)
+{
+	for (int i = 0; i < str.length; ++i) {
+		os << str.pStr[i];
+	}
+	return os;
+}
+
+size_t STRING::szGlobalID{};											// 2025. 04. 08
