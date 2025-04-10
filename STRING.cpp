@@ -76,11 +76,6 @@ STRING& STRING::operator= (const STRING& other)							// 2025. 04. 08.
 
 	memcpy(pStr.get(), other.pStr.get(), length);
 
-	/*pStr.reset();
-	pStr = std::make_unique<char[]>(length);
-
-	memcpy(pStr.get(), other.pStr.get(), length);*/
-
 	if (watching) {
 		std::println("[{:8}] {:16}, 자원수 - {:<10}",
 			id, "복사할당연산자", length, (void*)this, (void*)pStr.get());
@@ -90,6 +85,47 @@ STRING& STRING::operator= (const STRING& other)							// 2025. 04. 08.
 
 	return *this;
 }
+
+STRING::STRING(STRING&& other)												// 2025. 04. 10.
+	: id {++szGlobalID}, length {other.length}
+{
+	pStr.reset(other.pStr.release());
+
+	other.length = 0;
+
+	if (watching) {
+		std::println("[{:8}] {:16}, 자원수 - {:<10}",
+			id, "이동생성자", length, (void*)this, (void*)pStr.get());
+		std::println("           메모리 - {:<20}, 자원메모리 - {:<20} ",
+			(void*)this, (void*)pStr.get());
+	}
+}
+
+
+STRING& STRING::operator=(STRING&& other)									// 2025. 04. 10.
+{
+	if (this == &other) {
+		return *this;
+	}
+
+	length = other.length;
+
+	pStr.release();
+	pStr.reset(other.pStr.release());
+
+	other.length = 0;
+
+	if (watching) {
+		std::println("[{:8}] {:16}, 자원수 - {:<10}",
+			id, "이동할당연산자", length, (void*)this, (void*)pStr.get());
+		std::println("           메모리 - {:<20}, 자원메모리 - {:<20} ",
+			(void*)this, (void*)pStr.get());
+	}
+
+	return *this;
+}
+
+
 
 std::ostream& operator<< (std::ostream& os, const STRING& str)
 {

@@ -17,13 +17,15 @@ public:
 	STRING(const char* in);
 	
 
-	// 복사생성과 복사 할당
+	// 복사생성과 복사할당연산자
 
 	STRING(const STRING& origin);						// 2025. 04. 08
 	STRING& operator= (const STRING& other);			// 2025. 04. 08
 
 
-	// 이동생성과 히동할당
+	// 이동생성과 이동할당연산자						// 2025. 04. 10.
+	STRING(STRING&&);
+	STRING& operator=(STRING&&);
 
 	size_t size() const;
 
