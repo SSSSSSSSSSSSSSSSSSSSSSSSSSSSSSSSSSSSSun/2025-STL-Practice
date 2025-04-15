@@ -14217,3 +14217,695 @@ int main()
 
 	save("main.cpp");
 }
+
+=================================================
+저장한 시간: 2025-04-15 오후 2:19:19 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 15일 화요일				(7주 1일)
+// 중간고사	(30) - 4월 24일 목요일
+// 5월 6일 (화요일) -> 6월 19일(예정) 
+// 두 코드의 시간을 재고 비교해서 뭐가 더 빠르고 왜 빠른지 다루는 문제?
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+
+
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+int main()
+{
+	std::cout << typeid(std::array<int, 0>::value_type).name();
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-15 오후 2:26:34 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 15일 화요일				(7주 1일)
+// 중간고사	(30) - 4월 24일 목요일
+// 5월 6일 (화요일) -> 6월 19일(예정) 
+// 두 코드의 시간을 재고 비교해서 뭐가 더 빠르고 왜 빠른지 다루는 문제?
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+
+
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+//------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+int main()
+{
+	std::array<int, 0> a;
+
+	std::cout << "빈 어레이니? - " << std::boolalpha << a.empty() << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-15 오후 2:26:42 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 15일 화요일				(7주 1일)
+// 중간고사	(30) - 4월 24일 목요일
+// 5월 6일 (화요일) -> 6월 19일(예정) 
+// 두 코드의 시간을 재고 비교해서 뭐가 더 빠르고 왜 빠른지 다루는 문제?
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+
+
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+//------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+int main()
+{
+	std::array<int, 1> a;
+
+	std::cout << "빈 어레이니? - " << std::boolalpha << a.empty() << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-15 오후 2:29:31 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 15일 화요일				(7주 1일)
+// 중간고사	(30) - 4월 24일 목요일
+// 5월 6일 (화요일) -> 6월 19일(예정) 
+// 두 코드의 시간을 재고 비교해서 뭐가 더 빠르고 왜 빠른지 다루는 문제?
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+
+
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+//------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+int main()
+{
+	std::array<int, 5> a{ 1, 2, 3, 4, 5 };			// int a[5]
+
+	for (int i = -10; i < 10; ++i) {
+		std::cout << a[i] << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-15 오후 2:29:53 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 15일 화요일				(7주 1일)
+// 중간고사	(30) - 4월 24일 목요일
+// 5월 6일 (화요일) -> 6월 19일(예정) 
+// 두 코드의 시간을 재고 비교해서 뭐가 더 빠르고 왜 빠른지 다루는 문제?
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+
+
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+//------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+int main()
+{
+	std::array<int, 5> a{ 1, 2, 3, 4, 5 };			// int a[5]
+
+	for (int i = -10; i < 10; ++i) {
+		std::cout << a[i] << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-15 오후 2:30:10 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 15일 화요일				(7주 1일)
+// 중간고사	(30) - 4월 24일 목요일
+// 5월 6일 (화요일) -> 6월 19일(예정) 
+// 두 코드의 시간을 재고 비교해서 뭐가 더 빠르고 왜 빠른지 다루는 문제?
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+
+
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+//------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+int main()
+{
+	std::array<int, 6> a{ 1, 2, 3, 4, 5, 6 };			// int a[5]
+
+	for (int i = -10; i < 10; ++i) {
+		std::cout << a[i] << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-15 오후 2:43:26 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 15일 화요일				(7주 1일)
+// 중간고사	(30) - 4월 24일 목요일
+// 5월 6일 (화요일) -> 6월 19일(예정) 
+// 두 코드의 시간을 재고 비교해서 뭐가 더 빠르고 왜 빠른지 다루는 문제?
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+
+
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+int main()
+{
+	std::vector<int> v{ 1, 2 ,3 };		// { } - initializer-list
+	
+	// v의 정체를 밝혀보세요.
+	std::cout << "v의 크기 - " << sizeof(v) << '\n';
+	std::cout << "v의 주소 - " << addressof(v) << '\n';
+	std::cout << "v의 타입 - " << typeid(v).name() << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-15 오후 2:44:34 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 15일 화요일				(7주 1일)
+// 중간고사	(30) - 4월 24일 목요일
+// 5월 6일 (화요일) -> 6월 19일(예정) 
+// 두 코드의 시간을 재고 비교해서 뭐가 더 빠르고 왜 빠른지 다루는 문제?
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+
+
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+std::vector<int> v{ 1, 2 ,3 };		// { } - initializer-list
+extern bool watching;					// 관찰하려면 true로 설정
+
+int main()
+{
+	
+	
+	// v의 정체를 밝혀보세요.
+	std::cout << "v의 크기 - " << sizeof(v) << '\n';
+	std::cout << "v의 주소 - " << addressof(v) << '\n';
+	std::cout << "v의 타입 - " << typeid(v).name() << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-15 오후 2:44:41 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 15일 화요일				(7주 1일)
+// 중간고사	(30) - 4월 24일 목요일
+// 5월 6일 (화요일) -> 6월 19일(예정) 
+// 두 코드의 시간을 재고 비교해서 뭐가 더 빠르고 왜 빠른지 다루는 문제?
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+
+
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+int main()
+{
+	std::vector<int> v{ 1, 2 ,3 };		// { } - initializer-list
+	
+	// v의 정체를 밝혀보세요.
+	std::cout << "v의 크기 - " << sizeof(v) << '\n';
+	std::cout << "v의 주소 - " << addressof(v) << '\n';
+	std::cout << "v의 타입 - " << typeid(v).name() << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-15 오후 2:45:18 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 15일 화요일				(7주 1일)
+// 중간고사	(30) - 4월 24일 목요일
+// 5월 6일 (화요일) -> 6월 19일(예정) 
+// 두 코드의 시간을 재고 비교해서 뭐가 더 빠르고 왜 빠른지 다루는 문제?
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+
+
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+int main()
+{
+	std::vector<int>* v = new std::vector<int> { 1, 2 ,3 };		// { } - initializer-list
+	
+	// v의 정체를 밝혀보세요.
+	std::cout << "v의 크기 - " << sizeof(v) << '\n';
+	std::cout << "v의 주소 - " << addressof(v) << '\n';
+	std::cout << "v의 타입 - " << typeid(v).name() << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-15 오후 2:45:35 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 15일 화요일				(7주 1일)
+// 중간고사	(30) - 4월 24일 목요일
+// 5월 6일 (화요일) -> 6월 19일(예정) 
+// 두 코드의 시간을 재고 비교해서 뭐가 더 빠르고 왜 빠른지 다루는 문제?
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+
+
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+int main()
+{
+	std::vector<int>* v = new std::vector<int> { 1, 2 ,3 };		// { } - initializer-list
+	
+	// v의 정체를 밝혀보세요.
+	std::cout << "v의 크기 - " << sizeof(*v) << '\n';
+	std::cout << "v의 주소 - " << addressof(*v) << '\n';
+	std::cout << "v의 타입 - " << typeid(*v).name() << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-15 오후 2:54:16 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 15일 화요일				(7주 1일)
+// 중간고사	(30) - 4월 24일 목요일
+// 5월 6일 (화요일) -> 6월 19일(예정) 
+// 두 코드의 시간을 재고 비교해서 뭐가 더 빠르고 왜 빠른지 다루는 문제?
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+
+
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+int main()
+{
+	std::vector<int> v{ 1, 2 ,3 };		// { } - initializer-list
+	
+	// 반복자를 사용하여 access
+	for (std::vector<int>::iterator i = v.begin(); i != v.end(); ++i) {
+		std::cout << *i << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-15 오후 3:03:24 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 15일 화요일				(7주 1일)
+// 중간고사	(30) - 4월 24일 목요일
+// 5월 6일 (화요일) -> 6월 19일(예정) 
+// 두 코드의 시간을 재고 비교해서 뭐가 더 빠르고 왜 빠른지 다루는 문제?
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+
+
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+int main()
+{
+	std::vector<int> v{ 1, 2 ,3 };		// { } - initializer-list
+	
+	// 반복자를 사용하여 access
+	for (auto i = v.cbegin(); i != v.cend(); ++i) {
+		std::cout << *i << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-15 오후 3:03:32 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 15일 화요일				(7주 1일)
+// 중간고사	(30) - 4월 24일 목요일
+// 5월 6일 (화요일) -> 6월 19일(예정) 
+// 두 코드의 시간을 재고 비교해서 뭐가 더 빠르고 왜 빠른지 다루는 문제?
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+
+
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+int main()
+{
+	std::vector<int> v{ 1, 2 ,3 };		// { } - initializer-list
+	
+	// 반복자를 사용하여 access
+	for (auto i = v.crbegin(); i != v.crend(); ++i) {
+		std::cout << *i << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-15 오후 3:09:14 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 15일 화요일				(7주 1일)
+// 중간고사	(30) - 4월 24일 목요일
+// 5월 6일 (화요일) -> 6월 19일(예정) 
+// 두 코드의 시간을 재고 비교해서 뭐가 더 빠르고 왜 빠른지 다루는 문제?
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+
+
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <numeric>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] 키보드에서 입력한 정수값의 합계와 평균을 출력하라.
+
+int main()
+{
+	std::cout << "정수를 마음껏 입력하라" << '\n';
+
+	std::vector<int> v{ std::istream_iterator<int>{std::cin}, {} };
+
+	long long sum{ std::accumulate(v.begin(), v.end(), 0LL) };
+	std::cout << "합계입니다." << sum << '\n';
+	std::cout << "합계입니다." << double(sum) / v.size() << '\n';
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-15 오후 3:09:30 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 15일 화요일				(7주 1일)
+// 중간고사	(30) - 4월 24일 목요일
+// 5월 6일 (화요일) -> 6월 19일(예정) 
+// 두 코드의 시간을 재고 비교해서 뭐가 더 빠르고 왜 빠른지 다루는 문제?
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+
+
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <numeric>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] 키보드에서 입력한 정수값의 합계와 평균을 출력하라.
+
+int main()
+{
+	std::cout << "정수를 마음껏 입력하라" << '\n';
+
+	std::vector<int> v{ std::istream_iterator<int>{std::cin}, {} };
+
+	long long sum{ std::accumulate(v.begin(), v.end(), 0LL) };
+	std::cout << "합계입니다." << sum << '\n';
+	std::cout << "합계입니다." << double(sum) / v.size() << '\n';
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-15 오후 3:10:01 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 15일 화요일				(7주 1일)
+// 중간고사	(30) - 4월 24일 목요일
+// 5월 6일 (화요일) -> 6월 19일(예정) 
+// 두 코드의 시간을 재고 비교해서 뭐가 더 빠르고 왜 빠른지 다루는 문제?
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+
+
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <numeric>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] 키보드에서 입력한 정수값의 합계와 평균을 출력하라.
+
+int main()
+{
+	std::cout << "정수를 마음껏 입력하라" << '\n';
+
+	std::vector<int> v{ std::istream_iterator<int>{std::cin}, {} };
+
+	long long sum{ std::accumulate(v.begin(), v.end(), 0LL) };
+	std::cout << "합계입니다. - " << sum << '\n';
+	std::cout << "평균입니다. - " << double(sum) / v.size() << '\n';
+	save("main.cpp");
+}

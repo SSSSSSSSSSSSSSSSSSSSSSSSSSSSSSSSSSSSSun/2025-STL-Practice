@@ -1,5 +1,5 @@
 //------------------------------------------------------------------
-// 2025 STL 화56목78	4월 10일 화요일				(6주 2일)
+// 2025 STL 화56목78	4월 15일 화요일				(7주 1일)
 // 중간고사	(30) - 4월 24일 목요일
 // 5월 6일 (화요일) -> 6월 19일(예정) 
 // 두 코드의 시간을 재고 비교해서 뭐가 더 빠르고 왜 빠른지 다루는 문제?
@@ -9,12 +9,14 @@
 
 
 //------------------------------------------------------------------
-// STRING - std::string과 유사한 클래스, STL 표준 컨테이너가 되도록..
-//			내부 동작을 관찰할 수 있게 하자
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
 //------------------------------------------------------------------
 #include <iostream>
-#include <array>
-#include <algorithm>
+#include <vector>
+#include <numeric>
 #include "save.h"
 #include "STRING.h"
 // using namespace std;			// 우리는 이렇게 하면 안된다
@@ -23,21 +25,16 @@
 
 extern bool watching;					// 관찰하려면 true로 설정
 
+// [문제] 키보드에서 입력한 정수값의 합계와 평균을 출력하라.
+
 int main()
 {
-	
+	std::cout << "정수를 마음껏 입력하라" << '\n';
 
-	std::array<STRING, 5> a{ "1","333","55555", "22", "4444" };
-	// 정렬
-	std::sort(a.begin(), a.end(), [](const STRING& lhs, const STRING& rhs){
-		return lhs.size() < rhs.size();
-		})
-		;
-	// 출력
-	for (const STRING& str : a) {
-		std::cout << str << '\n';
-	}
+	std::vector<int> v{ std::istream_iterator<int>{std::cin}, {} };
 
-
+	long long sum{ std::accumulate(v.begin(), v.end(), 0LL) };
+	std::cout << "합계입니다. - " << sum << '\n';
+	std::cout << "평균입니다. - " << double(sum) / v.size() << '\n';
 	save("main.cpp");
 }
