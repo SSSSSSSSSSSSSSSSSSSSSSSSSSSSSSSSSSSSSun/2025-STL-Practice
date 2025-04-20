@@ -28,7 +28,7 @@ public:
 	STRING& operator=(STRING&&);
 
 	size_t size() const;
-
+	size_t getID() const;
 private:
 	size_t length;
 	std::unique_ptr<char[]> pStr;

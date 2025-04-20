@@ -63,6 +63,11 @@ size_t STRING::size() const
 	return length;
 }
 
+size_t STRING::getID() const
+{
+	return id;
+}
+
 STRING& STRING::operator= (const STRING& other)							// 2025. 04. 08.
 {
 	if (this == &other) {
