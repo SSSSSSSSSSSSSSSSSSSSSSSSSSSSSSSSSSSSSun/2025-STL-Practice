@@ -1,8 +1,7 @@
 //------------------------------------------------------------------
-// 2025 STL 화56목78	4월 17일 화요일				(7주 2일)
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
 // 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
-// 5월 6일 (화요일) -> 6월 19일(예정) 
-// 두 코드의 시간을 재고 비교해서 뭐가 더 빠르고 왜 빠른지 다루는 문제?
+// 5월 6일 (화요일) -> 6월 19일(예정)
 //------------------------------------------------------------------
 // VS 버전 - 17.13 이상
 // Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
@@ -11,10 +10,10 @@
 // 1. Sequence Containers
 //		array<T, N>
 //		vector<T> - dynamic(run-time) array
+//		deque<T> - vector보다 더 많은 원소를 담을 수 있다
 //------------------------------------------------------------------
 #include <iostream>
-#include <vector>
-
+#include <deque>
 #include "save.h"
 #include "STRING.h"
 // using namespace std;			// 우리는 이렇게 하면 안된다
@@ -23,18 +22,17 @@
 
 extern bool watching;					// 관찰하려면 true로 설정
 
-// [문제] vector는 어떻게 메모리를 관리하나
-// 새로 메모리를 잡는 순간만 화면에 출력
+// a & 1
 
 int main()
 {
 	watching = true;
+	std::deque<STRING> d{ "1","22","333","4444" };
 
-	std::vector<STRING> v;
+	for (const STRING& s : d) {
+		std::cout << (void*)&s << '\n';
+	}
 
-	v.emplace_back();
-	std::cout << "v.back()에 들어간 STRING의 ID - " << v.back().getID() << '\n';
-	
-
+	watching = false;
 	save("main.cpp");
 }

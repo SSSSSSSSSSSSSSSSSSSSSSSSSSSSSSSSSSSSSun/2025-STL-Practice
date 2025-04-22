@@ -16056,3 +16056,2118 @@ int main()
 
 	save("main.cpp");
 }
+
+=================================================
+저장한 시간: 2025-04-22 오후 1:45:09 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include <fstream>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] "메인.cpp" 파일의 소문자 알파벳 빈도(frequency)를 다음과 같이 출력하라
+// a -> 10
+// b -> 3
+// z -> 0
+
+int main()
+{
+	watching = true;
+
+	std::vector<STRING> v;
+
+	// v에 최대 얼마만큼의 원소를 저장할 것인지 예측
+	// 예측한 만큼 공간을 확보한다 -> reserve
+
+	v.reserve(1'000);
+
+	
+	std::array<size_t, 26> frequency {};
+
+	std::ifstream in{ "main.cpp" };
+	if (not in) {
+		return -1557;
+	}
+
+	char a;
+	while (in >> a) {
+		if ('a' << a and a << 'z') {
+			++frequency[a - 'a'];
+		}
+	}
+
+	for (a = 'a'; a != 'z' + 1; ++a) {
+		std::cout << a << " - " << frequency[a - 'a'] << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 1:45:23 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include <fstream>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] "메인.cpp" 파일의 소문자 알파벳 빈도(frequency)를 다음과 같이 출력하라
+// a -> 10
+// b -> 3
+// z -> 0
+
+int main()
+{
+	watching = true;
+
+	std::vector<STRING> v;
+
+	// v에 최대 얼마만큼의 원소를 저장할 것인지 예측
+	// 예측한 만큼 공간을 확보한다 -> reserve
+
+	v.reserve(1'000);
+
+	
+	std::array<size_t, 26> frequency {};
+
+	std::ifstream in{ "main.cpp" };
+	if (not in) {
+		return -1557;
+	}
+
+	char a;
+	while (in >> a) {
+		if ('a' < a and a < 'z') {
+			++frequency[a - 'a'];
+		}
+	}
+
+	for (a = 'a'; a != 'z' + 1; ++a) {
+		std::cout << a << " - " << frequency[a - 'a'] << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 1:46:02 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include <fstream>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] "메인.cpp" 파일의 소문자 알파벳 빈도(frequency)를 다음과 같이 출력하라
+// a -> 10
+// b -> 3
+// z -> 0
+
+int main()
+{
+	watching = true;
+
+	std::vector<STRING> v;
+
+	// v에 최대 얼마만큼의 원소를 저장할 것인지 예측
+	// 예측한 만큼 공간을 확보한다 -> reserve
+
+	v.reserve(1'000);
+
+	
+	std::array<size_t, 26> frequency {};
+
+	std::ifstream in{ "main.cpp" };
+	if (not in) {
+		return -1557;
+	}
+
+	char a;
+	while (in >> a) {
+		if ('a' <= a and a <= 'z') {
+			++frequency[a - 'a'];
+		}
+	}
+
+	for (a = 'a'; a != 'z' + 1; ++a) {
+		std::cout << a << " - " << frequency[a - 'a'] << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 1:46:17 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include <fstream>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] "메인.cpp" 파일의 소문자 알파벳 빈도(frequency)를 다음과 같이 출력하라
+// a -> 10
+// b -> 3
+// z -> 0
+
+int main()
+{
+	watching = true;
+
+	std::vector<STRING> v;
+
+	// v에 최대 얼마만큼의 원소를 저장할 것인지 예측
+	// 예측한 만큼 공간을 확보한다 -> reserve
+
+	v.reserve(1'000);
+
+	
+	std::array<size_t, 26> frequency {};
+
+	std::ifstream in{ "main.cpp" };
+	if (not in) {
+		return -1557;
+	}
+
+	char a;
+	while (in >> a) {
+		if ('a' <= a and a <= 'z') {
+			++frequency[a - 'a'];
+		}
+	}
+
+	for (a = 'a'; a != 'z' + 1; ++a) {
+		std::cout << a << " - " << frequency[a - 'a'] << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 1:49:50 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include <fstream>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] "메인.cpp" 파일의 소문자 알파벳 빈도(frequency)를 다음과 같이 출력하라
+// a -> 10
+// b -> 3
+// z -> 0
+
+int main()
+{
+	watching = true;
+
+	std::vector<STRING> v;
+
+	// v에 최대 얼마만큼의 원소를 저장할 것인지 예측
+	// 예측한 만큼 공간을 확보한다 -> reserve
+
+	v.reserve(1'000);
+
+	
+	std::array<size_t, 26> frequency{};
+
+	for (const size_t& size : frequency) {
+		std::cout << size << ' ';
+	}
+
+	std::ifstream in{ "main.cpp" };
+	if (not in) {
+		return -1557;
+	}
+
+	char a;
+	while (in >> a) {
+		if ('a' <= a and a <= 'z') {
+			++frequency[a - 'a'];
+		}
+	}
+
+	for (a = 'a'; a != 'z' + 1; ++a) {
+		std::cout << a << " - " << frequency[a - 'a'] << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 1:50:00 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include <fstream>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] "메인.cpp" 파일의 소문자 알파벳 빈도(frequency)를 다음과 같이 출력하라
+// a -> 10
+// b -> 3
+// z -> 0
+
+int main()
+{
+	watching = true;
+
+	std::vector<STRING> v;
+
+	// v에 최대 얼마만큼의 원소를 저장할 것인지 예측
+	// 예측한 만큼 공간을 확보한다 -> reserve
+
+	v.reserve(1'000);
+
+	
+	std::array<size_t, 26> frequency;
+
+	for (const size_t& size : frequency) {
+		std::cout << size << ' ';
+	}
+
+	std::ifstream in{ "main.cpp" };
+	if (not in) {
+		return -1557;
+	}
+
+	char a;
+	while (in >> a) {
+		if ('a' <= a and a <= 'z') {
+			++frequency[a - 'a'];
+		}
+	}
+
+	for (a = 'a'; a != 'z' + 1; ++a) {
+		std::cout << a << " - " << frequency[a - 'a'] << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 1:53:29 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <array>
+#include <fstream>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] "메인.cpp" 파일의 소문자 알파벳 빈도(frequency)를 다음과 같이 출력하라
+// a -> 10
+// b -> 3
+// z -> 0
+
+int main()
+{
+	watching = true;
+
+	std::vector<STRING> v;
+
+	// v에 최대 얼마만큼의 원소를 저장할 것인지 예측
+	// 예측한 만큼 공간을 확보한다 -> reserve
+
+	v.reserve(1'000);
+
+	
+	std::array<size_t, 26> frequency{};
+
+	std::ifstream in{ "main.cpp" };
+	if (not in) {
+		return -1557;
+	}
+
+	char a;
+	while (in >> a) {
+		if (islower(a)) {
+			frequency[a - 'a']++;
+		}
+	}
+
+	for (int i = 0; i < frequency.size(); ++i) {
+		std::cout << static_cast<char>(i + 'a') << " -> " << frequency[i] << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 1:58:13 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] "메인.cpp" 파일의 소문자 알파벳 빈도(frequency)를 다음과 같이 출력하라
+// a -> 10
+// b -> 3
+// z -> 0
+
+int main()
+{
+	std::vector<int> v {1, 2, 3, 4, 5};
+
+	// [문제] v에서 3을 제거하라
+
+	std::remove(v.begin(), v.end(), 3);
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 1:58:38 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] "메인.cpp" 파일의 소문자 알파벳 빈도(frequency)를 다음과 같이 출력하라
+// a -> 10
+// b -> 3
+// z -> 0
+
+int main()
+{
+	std::vector<int> v {1, 2, 3, 4, 5};
+
+	// [문제] v에서 3을 제거하라
+
+	std::remove(v.begin(), v.end(), 3);
+
+	for (const int& a : v) {
+		std::cout << a << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:07:52 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] "메인.cpp" 파일의 소문자 알파벳 빈도(frequency)를 다음과 같이 출력하라
+// a -> 10
+// b -> 3
+// z -> 0
+
+int main()
+{
+	std::vector<int> v {1, 2, 3, 4, 5};
+
+	// [문제] v에서 3을 제거하라
+
+	auto new_end =std::remove(v.begin(), v.end(), 3);
+	v.erase(new_end, v.end());
+
+	for (const int& a : v) {
+		std::cout << a << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:09:36 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] "메인.cpp" 파일의 소문자 알파벳 빈도(frequency)를 다음과 같이 출력하라
+// a -> 10
+// b -> 3
+// z -> 0
+
+int main()
+{
+	std::vector<int> v {1, 2, 3, 4, 5};
+
+	// [문제] v에서 3을 제거하라	erase-remove idiom
+
+	v.erase(std::remove(v.begin(), v.end(), 3), v.end());
+
+	for (const int& a : v) {
+		std::cout << a << '\n';
+	}
+	std::cout << v.size() << '/' << v.capacity();
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:10:59 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] "메인.cpp" 파일의 소문자 알파벳 빈도(frequency)를 다음과 같이 출력하라
+// a -> 10
+// b -> 3
+// z -> 0
+
+int main()
+{
+	std::vector<int> v {1, 2, 3, 4, 5};
+
+	// [문제] v에서 3을 제거하라	erase-remove idiom
+
+	erase(v, 3);
+
+	for (const int& a : v) {
+		std::cout << a << '\n';
+	}
+	std::cout << v.size() << '/' << v.capacity() << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:11:34 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] "메인.cpp" 파일의 소문자 알파벳 빈도(frequency)를 다음과 같이 출력하라
+// a -> 10
+// b -> 3
+// z -> 0
+
+int main()
+{
+	std::vector<int> v {1, 2, 3, 4, 5};
+
+	// [문제] v에서 3을 제거하라	erase-remove idiom
+
+	erase(v, 3);			// 알아만 둬라
+
+	for (const int& a : v) {
+		std::cout << a << '\n';
+	}
+	std::cout << v.size() << '/' << v.capacity() << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:14:06 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] "메인.cpp" 파일의 소문자 알파벳 빈도(frequency)를 다음과 같이 출력하라
+// a -> 10
+// b -> 3
+// z -> 0
+
+int main()
+{
+	std::vector<int> v {1, 2, 3, 4, 5};
+
+	// [문제] v에서 홀수를 제거하라	erase-remove idiom
+
+	v.erase(std::remove_if(v.begin(), v.end(), [](const int& a) {
+		return (a % 2 == 1);
+		}),v.end());
+
+	for (const int& a : v) {
+		std::cout << a << '\n';
+	}
+	std::cout << v.size() << '/' << v.capacity() << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:24:11 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] "메인.cpp" 파일의 소문자 알파벳 빈도(frequency)를 다음과 같이 출력하라
+// a -> 10
+// b -> 3
+// z -> 0
+
+int main()
+{
+	std::vector<int> v {1, 2, 3, 4, 5};
+
+	// [문제] v에서 홀수를 제거하라	erase-remove idiom
+
+	v.erase(std::remove_if(v.begin(), v.end(), [](const int& a) {
+		return a & 11;
+		}),v.end());
+
+	for (const int& a : v) {
+		std::cout << a << '\n';
+	}
+	std::cout << v.size() << '/' << v.capacity() << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:24:30 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] "메인.cpp" 파일의 소문자 알파벳 빈도(frequency)를 다음과 같이 출력하라
+// a -> 10
+// b -> 3
+// z -> 0
+
+int main()
+{
+	std::vector<int> v {1, 2, 3, 4, 5,6, 7,8,9,10};
+
+	// [문제] v에서 홀수를 제거하라	erase-remove idiom
+
+	v.erase(std::remove_if(v.begin(), v.end(), [](const int& a) {
+		return a & 11;
+		}),v.end());
+
+	for (const int& a : v) {
+		std::cout << a << '\n';
+	}
+	std::cout << v.size() << '/' << v.capacity() << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:24:46 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] "메인.cpp" 파일의 소문자 알파벳 빈도(frequency)를 다음과 같이 출력하라
+// a -> 10
+// b -> 3
+// z -> 0
+
+int main()
+{
+	std::vector<int> v {1, 2, 3, 4, 5,6, 7,8,9,10};
+
+	// [문제] v에서 홀수를 제거하라	erase-remove idiom
+
+	v.erase(std::remove_if(v.begin(), v.end(), [](const int& a) {
+		return a & 1;
+		}),v.end());
+
+	for (const int& a : v) {
+		std::cout << a << '\n';
+	}
+	std::cout << v.size() << '/' << v.capacity() << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:24:56 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] "메인.cpp" 파일의 소문자 알파벳 빈도(frequency)를 다음과 같이 출력하라
+// a -> 10
+// b -> 3
+// z -> 0
+
+int main()
+{
+	std::vector<int> v {1, 2, 3, 4, 5,6, 7,8,9,10};
+
+	// [문제] v에서 홀수를 제거하라	erase-remove idiom
+
+	v.erase(std::remove_if(v.begin(), v.end(), [](const int& a) {
+		return a & 11;
+		}),v.end());
+
+	for (const int& a : v) {
+		std::cout << a << '\n';
+	}
+	std::cout << v.size() << '/' << v.capacity() << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:36:04 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	std::vector<STRING> v{ "1", "2", "3", "4", "5" };
+
+	// [문제] v에서 "3"을 제거하라
+
+	v.erase(std::remove_if(v.begin(), v.end(), [](const STRING& s) {
+		return s == STRING("3");
+
+		
+		}), v.end());
+
+	for (const STRING& s : v) {
+		std::cout << s << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:36:33 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	std::vector<STRING> v{ "1", "2", "3", "4", "5" };
+
+	// [문제] v에서 "3"을 제거하라
+
+	v.erase(std::remove_if(v.begin(), v.end(), [](const STRING& s) {
+		return s == STRING("3");
+
+		
+		}), v.end());
+
+	for (const STRING& s : v) {
+		std::cout << s << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:40:50 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	std::vector<STRING> v{ "1", "2", "3", "4", "5" };
+
+	// [문제] v에서 "3"을 제거하라
+
+	v.erase(std::remove_if(v.begin(), v.end(), [](const STRING& s) {
+		return s == STRING("3");
+
+		
+		}), v.end());
+
+	for (const STRING& s : v) {
+		std::cout << s << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:41:53 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	std::vector<STRING> v{ "1", "2", "3", "4", "5" };
+
+	// [문제] v에서 "3"을 제거하라
+
+	v.erase(std::remove(v.begin(), v.end(), "3"),v.end());
+
+	for (const STRING& s : v) {
+		std::cout << s << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:43:55 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	std::vector<STRING> v{ "1", "2", "4", "5" };
+
+	// [문제] v에서 "2"와 "4"사이에 "3"을 삽입하라
+
+	v.erase(std::remove(v.begin(), v.end(), "3"),v.end());
+
+	v.insert(v.begin() + 2, "3");
+
+
+	for (const STRING& s : v) {
+		std::cout << s << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:44:30 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	watching = true;
+	std::vector<STRING> v{ "1", "2", "4", "5" };
+
+	// [문제] v에서 "2"와 "4"사이에 "3"을 삽입하라
+
+	v.erase(std::remove(v.begin(), v.end(), "3"),v.end());
+
+	std::cout << "========";
+	v.insert(v.begin() + 2, "3");
+	std::cout << "========";
+	
+	for (const STRING& s : v) {
+		std::cout << s << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:45:18 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	watching = true;
+	std::vector<STRING> v{ "1", "2", "4", "5" };
+
+	// [문제] v에서 "2"와 "4"사이에 "3"을 삽입하라
+
+	v.erase(std::remove(v.begin(), v.end(), "3"),v.end());
+
+	std::cout << "========";
+	v.insert(v.begin() + 2, "3");
+	std::cout << "========";
+	
+	for (const STRING& s : v) {
+		std::cout << s << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:46:18 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	watching = true;
+	std::vector<STRING> v{ "1", "2", "4", "5" };
+
+	// [문제] v에서 "2"와 "4"사이에 "3"을 삽입하라
+	std::cout << "========";
+	v.erase(std::remove(v.begin(), v.end(), "3"),v.end());
+
+	std::cout << "========";
+	v.insert(v.begin() + 2, "3");
+	std::cout << "========";
+	
+	for (const STRING& s : v) {
+		std::cout << s << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:47:01 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	watching = true;
+	std::vector<STRING> v{ "1", "2", "4", "5" };
+
+	// [문제] v에서 "2"와 "4"사이에 "3"을 삽입하라
+	std::cout << "========";
+	v.erase(std::remove(v.begin(), v.end(), "3"),v.end());
+
+	std::cout << "========";
+	v.insert(v.begin() + 2, "3");
+	std::cout << "========";
+	
+	for (const STRING& s : v) {
+		std::cout << s << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:49:10 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	watching = true;
+	std::vector<STRING> v{ "1", "2", "3", "4", "5" };
+
+	// [문제] v에서 "2"와 "4"사이에 "3"을 삽입하라
+	std::cout << "========";
+	v.erase(std::remove(v.begin(), v.end(), "3"),v.end());
+
+	std::cout << "========";
+	v.insert(v.begin() + 2, "3");
+	std::cout << "========";
+	
+	for (const STRING& s : v) {
+		std::cout << s << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:51:04 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	watching = true;
+	std::list<STRING> v{ "1", "2", "3", "4", "5" };
+
+	// [문제] v에서 "2"와 "4"사이에 "3"을 삽입하라
+	std::cout << "========";
+	std::remove(v.begin(), v.end(), "3"),v.end();
+
+	/*std::cout << "========";
+	v.insert(v.begin() + 2, "3");
+	std::cout << "========";*/
+	
+	for (const STRING& s : v) {
+		std::cout << s << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:51:42 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	
+	std::list<STRING> v{ "1", "22", "333", "4444", "55555" };
+
+	// [문제] v에서 "2"와 "4"사이에 "3"을 삽입하라
+	std::cout << "========";
+	watching = true;
+	std::remove(v.begin(), v.end(), "3"),v.end();
+	watching = false;
+	/*std::cout << "========";
+	v.insert(v.begin() + 2, "3");
+	std::cout << "========";*/
+	
+	for (const STRING& s : v) {
+		std::cout << s << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:52:19 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	
+	std::list<STRING> v{ "1", "22", "333", "4444", "55555" };
+
+	// [문제] v에서 "333"을 제거하라
+
+	watching = true;
+	std::remove(v.begin(), v.end(), "3"),v.end();
+	watching = false;
+	
+	
+	for (const STRING& s : v) {
+		std::cout << s << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:52:42 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	
+	std::list<STRING> v{ "1", "22", "333", "4444", "55555" };
+
+	// [문제] v에서 "333"을 제거하라
+
+	watching = true;
+	std::remove(v.begin(), v.end(), "333"),v.end();
+	watching = false;
+	
+	
+	for (const STRING& s : v) {
+		std::cout << s << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:54:04 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	
+	std::list<STRING> v{ "1", "22", "4444", "55555" };
+
+	// [문제] v에서 "333"을 삽입하라
+
+	watching = true;
+	v.insert(++++v.begin(), "333");
+	watching = false;
+	
+	
+	for (const STRING& s : v) {
+		std::cout << s << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:55:36 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	
+	std::list<STRING> v{ "1", "22", "4444", "55555" };
+
+	// [문제] v에서 "333"을 삽입하라
+	STRING temp{ "333" };
+	watching = true;
+
+	v.insert(++ ++v.begin(),temp) ;
+	watching = false;
+	
+	
+	for (const STRING& s : v) {
+		std::cout << s << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 2:55:53 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//------------------------------------------------------------------
+#include <iostream>
+#include <list>
+#include <algorithm>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	
+	std::list<STRING> v{ "1", "22", "4444", "55555" };
+
+	// [문제] v에서 "333"을 삽입하라
+
+	watching = true;
+
+	v.emplace(++ ++v.begin(),"333");
+	watching = false;
+	
+	
+	for (const STRING& s : v) {
+		std::cout << s << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 3:00:31 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//		deque<T> - vector보다 더 많은 원소를 담을 수 있다
+//------------------------------------------------------------------
+#include <iostream>
+#include <deque>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	std::deque<STRING> d;
+
+	std::cout << "VS에서 x64일때 deque의 크기" << sizeof d << '\n';
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 3:02:18 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//		deque<T> - vector보다 더 많은 원소를 담을 수 있다
+//------------------------------------------------------------------
+#include <iostream>
+#include <deque>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	std::deque<STRING> d{ "1","22","333","4444","55555" };
+
+	for (int i = 0; i < d.size(); ++i) {
+		std::cout << &d[i] << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 3:03:17 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//		deque<T> - vector보다 더 많은 원소를 담을 수 있다
+//------------------------------------------------------------------
+#include <iostream>
+#include <deque>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	watching = true;
+	std::deque<STRING> d{ "1","22","333","4444","55555" };
+	
+	for (int i = 0; i < d.size(); ++i) {
+		std::cout << &d[i] << '\n';
+	}
+	watching = false;
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 3:06:07 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//		deque<T> - vector보다 더 많은 원소를 담을 수 있다
+//------------------------------------------------------------------
+#include <iostream>
+#include <deque>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	watching = true;
+	std::deque<STRING> d{ "1","22","333","4444" };
+
+	d.push_front("0");
+	d.push_front("-1");
+
+	for (int i = 0; i < d.size(); ++i) {
+		std::cout << &d[i] << '\n';
+	}
+
+	watching = false;
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 3:06:22 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//		deque<T> - vector보다 더 많은 원소를 담을 수 있다
+//------------------------------------------------------------------
+#include <iostream>
+#include <deque>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	watching = true;
+	std::deque<STRING> d{ "1","22","333","4444" };
+
+	d.push_front("0");
+	d.push_front("-1");
+
+	for (int i = 0; i < d.size(); ++i) {
+		std::cout << d[i] << '\n';
+	}
+
+	watching = false;
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-04-22 오후 3:07:44 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	4월 22일 화요일				(8주 1일)
+// 중간고사	(30) - 4월 24일 목요일 - 시험 장소 : E동 320호
+// 5월 6일 (화요일) -> 6월 19일(예정)
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// STl Container - Containers are objects that store other objects.
+// 1. Sequence Containers
+//		array<T, N>
+//		vector<T> - dynamic(run-time) array
+//		deque<T> - vector보다 더 많은 원소를 담을 수 있다
+//------------------------------------------------------------------
+#include <iostream>
+#include <deque>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;			// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// a & 1
+
+int main()
+{
+	watching = true;
+	std::deque<STRING> d{ "1","22","333","4444" };
+
+	for (const STRING& s : d) {
+		std::cout << (void*)&s << '\n';
+	}
+
+	watching = false;
+	save("main.cpp");
+}

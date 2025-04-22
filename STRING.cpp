@@ -1,6 +1,7 @@
 #include <memory>
 #include <iostream>
 #include <print>
+#include <algorithm>
 #include "STRING.h"
 
 bool watching{ false };													// 2025. 04. 08.
@@ -130,6 +131,15 @@ STRING& STRING::operator=(STRING&& other)									// 2025. 04. 10.
 	return *this;
 }
 
+bool STRING::operator==(const STRING& other) const {
+	if (length != other.length) {
+		return false;
+	}
+
+	return std::equal(&pStr[0], &pStr[length], &other.pStr[0]);
+	
+	return true;
+}
 
 
 std::ostream& operator<< (std::ostream& os, const STRING& str)

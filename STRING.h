@@ -27,6 +27,9 @@ public:
 	STRING(STRING&&);
 	STRING& operator=(STRING&&);
 
+	// 2024. 4. 22. 관계연산자들
+	bool operator==(const STRING& other) const;
+
 	size_t size() const;
 	size_t getID() const;
 private:
