@@ -2,6 +2,9 @@
 // string.h - std::string과 유사한 클래스이다.
 //			  STL의 container로 동작할 수 있게 코딩해 나간다.
 //																2025. 04. 08 시작
+// >> 연산자													2025. 05. 01 시작
+// > 연산자														2025. 05. 08 시작																
+// 
 //------------------------------------------------------------------
 
 #pragma once
@@ -28,7 +31,8 @@ public:
 	STRING& operator=(STRING&&);
 
 	// 2024. 4. 22. 관계연산자들
-	bool operator==(const STRING& other) const;
+	bool operator==(const STRING& rhl) const;
+	bool operator<(const STRING& rhl) const;			// 2025. 05. 08.
 
 	size_t size() const;
 	size_t getID() const;
@@ -38,6 +42,9 @@ private:
 	size_t id;											// 2025. 04. 08										
 
 	friend std::ostream& operator<< (std::ostream& os, const STRING& str);
+
+	friend std::istream& operator>> (std::istream& is, STRING& str);
+														// 2025. 05. 01. 추가
 
 	static size_t szGlobalID;							// 2025. 04. 08
 	

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <print>
 #include <algorithm>
+#include <string>
 #include "STRING.h"
 
 bool watching{ false };													// 2025. 04. 08.
@@ -131,16 +132,16 @@ STRING& STRING::operator=(STRING&& other)									// 2025. 04. 10.
 	return *this;
 }
 
-bool STRING::operator==(const STRING& other) const {
-	if (length != other.length) {
-		return false;
-	}
-
-	return std::equal(&pStr[0], &pStr[length], &other.pStr[0]);
-	
-	return true;
+bool STRING::operator==(const STRING& rhl) const
+{
+	return std::equal(&pStr[0], &pStr[length], &rhl.pStr[0], &rhl.pStr[rhl.length]);
 }
 
+bool STRING::operator<(const STRING& rhl) const
+{
+	return std::lexicographical_compare(pStr.get(), pStr.get() + length,
+		rhl.pStr.get(), rhl.pStr.get() + length);
+}
 
 std::ostream& operator<< (std::ostream& os, const STRING& str)
 {
@@ -149,5 +150,18 @@ std::ostream& operator<< (std::ostream& os, const STRING& str)
 	}
 	return os;
 }
+
+std::istream& operator>> (std::istream& is, STRING& str)
+{
+	std::string s;
+	is >> s;
+	str.length = s.length();
+	str.pStr.release();
+	str.pStr = std::make_unique<char[]>(str.length);
+	memcpy((char*)str.pStr.get(), s.data(),str.length);
+	return is;
+}
+
+
 
 size_t STRING::szGlobalID{};											// 2025. 04. 08
