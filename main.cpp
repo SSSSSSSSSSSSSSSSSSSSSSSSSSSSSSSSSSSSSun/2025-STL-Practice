@@ -1,27 +1,23 @@
 //------------------------------------------------------------------
-// 2025 STL 화56목78	5월 8일 목요일							(10주 1일)
+// 2025 STL 화56목78	5월 13일 화요일							(10주 2일)
 // 6월 19일 목요일 15주 2일 - 기말 시험
 //------------------------------------------------------------------
 // VS 버전 - 17.13 이상
 // Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
 //------------------------------------------------------------------
-// STl Container - Containers are objects that store other objects.
-// 1. Sequence Containers
-//		array<T, N>
-//		vector<T> - push_back() O(1)
-//		deque<T> - push_front()/push_back() O(1)
-//		list<T> - node 기반, 임의의 위치에서 삽입과 삭제 O(1)
-//				- sort(), unique(), merge(), splice()
-//		forward_list<T> -
-//			It is intended that forward_list have zero space or time overhead
-//			relative to a hand-written C-style singly linked list.
-//			Features that would conflict with that goal have been omitted.
+// Iterator - Iterators are a generalization of pointers
+//			  that allow a C++ program to work with different data structures in a uniform manner.
+// 
+// 반복자는 클래스로 코딩해야 합니다.
 //------------------------------------------------------------------
 #include <iostream>
+#include <string>
+#include <iterator>
 #include <array>
 #include <vector>
 #include <deque>
-#include <span>
+#include <list>
+#include <forward_list>
 #include "save.h"
 #include "STRING.h"
 // using namespace std;			// 우리는 이렇게 하면 안된다
@@ -30,22 +26,31 @@
 
 extern bool watching;					// 관찰하려면 true로 설정
 
-void f(std::span<int> s)
+template<class Iterator>
+void f(Iterator i)
 {
-	for (auto i = s.rbegin(); i != s.rend(); ++i) {
-		std::cout << *i << " ";
-	}
-	std::cout << '\n';
+	// 종류
+	std::cout << "반복자의 타입 - " << typeid(Iterator::iterator_category).name() << '\n';
 }
 
 int main()
 {
-	int a[]{ 1,2,3,4,5,6,7 };
-	// 거꾸로 출력하라
-	f(a);
+	// [문제] 반복자는 종류(6 category)가 있다.
+	// 함수 f는 반복자를 인자로 받아 어떤 종류의 반복자인지 화면에 출력하는 함수이다.
+	// 다음 코드가 문제없이 실행되게 하자.
 
-	std::vector<int> v{ std::begin(a), std::end(a) };// { &a[0], &[7] };
-	f(v);
+	//f(std::array<int, 0>::iterator{});
+	std::array<int, 2> a;
+	f(a.begin());
+
+	std::vector<char> v;
+	f(v.end());
+
+	f(std::deque<STRING>::iterator{});
+	f(std::list<int>{}.rbegin());
+	f(std::forward_list<int>::const_iterator{});
+
+	f(std::ostream_iterator<char>{std::cout});
 
 	save("main.cpp");
 }

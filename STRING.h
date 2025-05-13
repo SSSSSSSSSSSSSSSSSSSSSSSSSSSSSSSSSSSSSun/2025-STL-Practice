@@ -2,14 +2,36 @@
 // string.h - std::string과 유사한 클래스이다.
 //			  STL의 container로 동작할 수 있게 코딩해 나간다.
 //																2025. 04. 08 시작
-// >> 연산자													2025. 05. 01 시작
-// > 연산자														2025. 05. 08 시작																
-// 
+// >> 연산자													2025. 05. 01
+// > 연산자														2025. 05. 08																
+// being(), end()												2025. 05. 13
+// 역방향 반복자는 반드시 클래스로 제공							2025. 05. 13
 //------------------------------------------------------------------
 
 #pragma once
 #include <memory>
 #include <iostream>
+
+// 반복자 어댑터
+class STRING_Reverse_Iterator {
+public:
+	STRING_Reverse_Iterator() = delete;
+	STRING_Reverse_Iterator(char* p) : p{ p } {};
+
+	char& operator*() const{
+		return *(p-1);
+	}
+	void operator++() {
+		--p;
+	}
+
+	bool operator==(const STRING_Reverse_Iterator& rhs) const {
+		return p == rhs.p;
+	}
+
+private:
+	char* p;
+};
 
 class STRING {
 public:
@@ -36,6 +58,12 @@ public:
 
 	size_t size() const;
 	size_t getID() const;
+
+	// begin(), end()
+	char* begin() const;
+	char* end() const;
+	STRING_Reverse_Iterator rbegin() const;
+	STRING_Reverse_Iterator rend() const;
 private:
 	size_t length;
 	std::unique_ptr<char[]> pStr;

@@ -70,6 +70,27 @@ size_t STRING::getID() const
 	return id;
 }
 
+char* STRING::begin() const
+{
+	return pStr.get();			// return &p[0]
+}
+
+
+char* STRING::end() const
+{
+	return pStr.get() + length;	// return &p[length]
+}
+
+STRING_Reverse_Iterator STRING::rbegin() const
+{
+	return STRING_Reverse_Iterator{ pStr.get() + length };
+}
+
+STRING_Reverse_Iterator STRING::rend() const
+{
+	return pStr.get();
+}
+
 STRING& STRING::operator= (const STRING& other)							// 2025. 04. 08.
 {
 	if (this == &other) {
