@@ -11,46 +11,23 @@
 // 반복자는 클래스로 코딩해야 합니다.
 //------------------------------------------------------------------
 #include <iostream>
-#include <string>
-#include <iterator>
-#include <array>
-#include <vector>
-#include <deque>
-#include <list>
-#include <forward_list>
+#include <algorithm>
 #include "save.h"
 #include "STRING.h"
-// using namespace std;			// 우리는 이렇게 하면 안된다
+// using namespace std;					// 우리는 이렇게 하면 안된다
 // constexpr란?
 // move semantic
 
 extern bool watching;					// 관찰하려면 true로 설정
 
-template<class Iterator>
-void f(Iterator i)
-{
-	// 종류
-	std::cout << "반복자의 타입 - " << typeid(Iterator::iterator_category).name() << '\n';
-}
-
 int main()
 {
-	// [문제] 반복자는 종류(6 category)가 있다.
-	// 함수 f는 반복자를 인자로 받아 어떤 종류의 반복자인지 화면에 출력하는 함수이다.
-	// 다음 코드가 문제없이 실행되게 하자.
+	STRING s{ "2025 5 15" };
 
-	//f(std::array<int, 0>::iterator{});
-	std::array<int, 2> a;
-	f(a.begin());
+	// 문제없이 실행되게 하자
+	std::sort(s.begin(), s.end());
 
-	std::vector<char> v;
-	f(v.end());
-
-	f(std::deque<STRING>::iterator{});
-	f(std::list<int>{}.rbegin());
-	f(std::forward_list<int>::const_iterator{});
-
-	f(std::ostream_iterator<char>{std::cout});
-
+	std::cout << s << '\n';				// "   01225555"
+	
 	save("main.cpp");
 }

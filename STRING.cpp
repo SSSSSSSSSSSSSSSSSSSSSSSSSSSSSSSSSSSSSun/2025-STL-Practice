@@ -70,13 +70,13 @@ size_t STRING::getID() const
 	return id;
 }
 
-char* STRING::begin() const
+STRING_Iterator STRING::begin() const
 {
 	return pStr.get();			// return &p[0]
 }
 
 
-char* STRING::end() const
+STRING_Iterator STRING::end() const
 {
 	return pStr.get() + length;	// return &p[length]
 }
