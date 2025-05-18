@@ -22,10 +22,12 @@ extern bool watching;					// 관찰하려면 true로 설정
 
 int main()
 {
+
 	STRING s{ "2025 5 15" };
 
 	// 문제없이 실행되게 하자
 	std::sort(s.begin(), s.end());
+	*(std::find(s.begin(), s.end(),'1')) = 'a';
 
 	std::cout << s << '\n';				// "   01225555"
 	

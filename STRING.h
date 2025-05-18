@@ -25,21 +25,85 @@ public:
 	STRING_Iterator(char* p) : p{ p } {};
 
 	// 반복자라면 최소한 다음 기능을 제공해야함
-	char& operator*() const {
+	reference operator*() const {
 		return *p;
 	}
 
-	char* operator++() {
-		return ++p;
+	pointer operator->() const {
+		return p;
+	}
+
+	STRING_Iterator& operator++() {
+		++p;
+		return *this;
+	}
+
+	STRING_Iterator& operator--() {
+		--p;
+		return *this;
+	}
+
+	STRING_Iterator operator++(int) {
+		STRING_Iterator result = *this;
+		++p;
+		return result;
+	}
+
+	STRING_Iterator operator--(int) {
+		STRING_Iterator result = *this;
+		--p;
+		return result;
 	}
 
 	bool operator==(const STRING_Iterator& rhs) const {
 		return p == rhs.p;
 	}
 
+	bool operator<(const STRING_Iterator& rhs) const {
+		return p < rhs.p;
+	}
+
+	bool operator>(const STRING_Iterator& rhs) const {
+		return p > rhs.p;
+	}
+
+	bool operator<=(const STRING_Iterator& rhs) const {
+		return p <= rhs.p;
+	}
+
+	bool operator>=(const STRING_Iterator& rhs) const {
+		return p >= rhs.p;
+	}
+
 	ptrdiff_t operator-(const STRING_Iterator& rhs) const {
 		return p - rhs.p;
 	}
+
+	STRING_Iterator& operator+=(const difference_type& rhs){
+		p += rhs;
+		return *this;
+	}
+
+	STRING_Iterator operator+(const difference_type& rhs) const {
+		STRING_Iterator result = *this;
+		result += rhs;
+		return result;
+	}
+
+	STRING_Iterator& operator-=(const difference_type& rhs) {
+		p -= rhs;
+		return *this;
+	}
+
+	STRING_Iterator operator-(const difference_type& rhs) const {
+		STRING_Iterator result = *this;
+		result -= rhs;
+		return result;
+	}
+
+	
+
+
 
 private:
 	char* p;
