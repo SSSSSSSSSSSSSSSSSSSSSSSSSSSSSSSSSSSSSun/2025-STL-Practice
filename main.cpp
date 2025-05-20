@@ -12,6 +12,7 @@
 //------------------------------------------------------------------
 #include <iostream>
 #include <algorithm>
+#include <vector>
 #include "save.h"
 #include "STRING.h"
 // using namespace std;					// 우리는 이렇게 하면 안된다
@@ -20,16 +21,50 @@
 
 extern bool watching;					// 관찰하려면 true로 설정
 
+template<class 반복자, class 값>
+반복자 my_find(반복자 b, 반복자 e, 값 v)
+{
+	while (b != e) {
+		if (v == *b) {
+			return b;
+		}
+		++b;
+	}
+	return b;
+}
+
+template<class 반복자, class Pred>
+반복자 myfind_if(반복자 b, 반복자 e, Pred f)
+{
+	for (; b != e; ++b) {
+		if (f(*b)) { return b; }
+	}
+	return e;
+}
+
+template<class 반복자, class 목적지반복자>
+void my_copy(반복자 b, 반복자 e, 목적지반복자 d)
+{
+	while (b != e) {
+		*d = *b;
+		++d;
+		++b;
+	}
+}
+
 int main()
 {
 
-	STRING s{ "2025 5 15" };
+	STRING s{ "반복자를 사용한 알고리즘을 연습 중" };
+	std::vector<char> v{ '1' };
 
-	// 문제없이 실행되게 하자
-	std::sort(s.begin(), s.end());
-	*(std::find(s.begin(), s.end(),'1')) = 'a';
-
-	std::cout << s << '\n';				// "   01225555"
+	my_copy(s.begin(), s.end(), back_inserter(v));
 	
+	for (char c : v) {
+		std::cout << c;
+	}
+
+	std::cout << '\n';
+
 	save("main.cpp");
 }
