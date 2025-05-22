@@ -3,11 +3,13 @@
 //			  STL의 container로 동작할 수 있게 코딩해 나간다.
 //																2025. 04. 08 시작
 // >> 연산자													2025. 05. 01
-// > 연산자														2025. 05. 08																
+// < 연산자														2025. 05. 08																
 // being(), end()												2025. 05. 13
 // 역방향 반복자는 반드시 클래스로 제공							2025. 05. 13
 // 반복자도 당연히 클래스로 코딩해야 한다						2025. 05. 15
-//																2025. 05. 20
+// 랜덤반복자가 되려면 이런 연산들을 지원						2025. 05. 20
+// <=> 연산자													2025. 05. 22
+// std::less를 특수화											2025. 05. 22
 //------------------------------------------------------------------
 
 #pragma once
@@ -112,9 +114,17 @@ public:
 	STRING(STRING&&);
 	STRING& operator=(STRING&&);
 
-	// 2024. 4. 22. 관계연산자들
-	bool operator==(const STRING& rhl) const;
+	// 2025. 4. 22. 관계연산자들
+	//bool operator==(const STRING& rhl) const;
 	bool operator<(const STRING& rhl) const;			// 2025. 05. 08.
+
+	// 2025. 5. 22
+	auto operator<=> (const STRING& rhs) const {
+		return std::lexicographical_compare(pStr.get(), pStr.get() + length,
+			rhs.pStr.get(), rhs.pStr.get() + length);
+	}
+
+
 
 	size_t size() const;
 	size_t getID() const;

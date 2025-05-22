@@ -153,16 +153,19 @@ STRING& STRING::operator=(STRING&& other)									// 2025. 04. 10.
 	return *this;
 }
 
-bool STRING::operator==(const STRING& rhl) const
-{
-	return std::equal(&pStr[0], &pStr[length], &rhl.pStr[0], &rhl.pStr[rhl.length]);
-}
-
+//bool STRING::operator==(const STRING& rhl) const
+//{
+//	return std::equal(&pStr[0], &pStr[length], &rhl.pStr[0], &rhl.pStr[rhl.length]);
+//}
+//
 bool STRING::operator<(const STRING& rhl) const
 {
 	return std::lexicographical_compare(pStr.get(), pStr.get() + length,
 		rhl.pStr.get(), rhl.pStr.get() + length);
 }
+
+// 2025. 05. 22
+// 모든 관계연산자를 대체하는 three-way comparison operator
 
 std::ostream& operator<< (std::ostream& os, const STRING& str)
 {
