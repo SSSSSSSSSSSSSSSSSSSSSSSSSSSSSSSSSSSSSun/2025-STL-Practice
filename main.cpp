@@ -1,5 +1,5 @@
 //------------------------------------------------------------------
-// 2025 STL 화56목78	5월 22일 목요일							(12주 1일)
+// 2025 STL 화56목78	5월 27일 목요일							(13주 1일)
 // 6월 19일 목요일 15주 2일 - 기말 시험
 //------------------------------------------------------------------
 // VS 버전 - 17.13 이상
@@ -11,8 +11,10 @@
 //  map / multimap			- pair<key, value>
 //------------------------------------------------------------------
 #include <iostream>
+#include <fstream>
+#include <algorithm>
 #include <set>
-#include <ranges>
+#include <vector>
 #include "save.h"
 #include "STRING.h"
 // using namespace std;					// 우리는 이렇게 하면 안된다
@@ -21,26 +23,35 @@
 
 extern bool watching;					// 관찰하려면 true로 설정
 
-// template을 specialization 한다
-template <>
-struct std::less<STRING> {
-public:
-	bool operator()(const STRING& a, const STRING& b) const {
-		return a.size() < b.size();
-	}
-};
-
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// 
 
 int main()
 {
-	
-	// [문제] s를 기본정렬 기준인 less를 사용하여 바이트 수 기준으로 정렬되게 하자
-	std::set<STRING> s{ "333", "2222", "11111", "44", "5"};
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
 
-	for (const STRING& str : s) {
-		std::cout << str << '\n';
+	if (not in) {
+		return -1557;
+	}
+
+	std::multiset<STRING> ms{ std::istream_iterator<STRING>{in}, {} };
+	std::cout << "set으로 복사한 단어의 수 - " << ms.size() << '\n';
+
+	for (const STRING& s : ms) {
+		std::cout << s << " ";
 	}
 	std::cout << '\n';
+
+	// 동일 단어가 몇 개 있는지 알려주자
+
+	while (true) {
+		STRING target;
+		std::cin >> target;
+
+		std::cout << ms.count(target) << '\n';
+	}
 
 
 	save("main.cpp");

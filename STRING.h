@@ -115,10 +115,10 @@ public:
 	STRING& operator=(STRING&&);
 
 	// 2025. 4. 22. 관계연산자들
-	//bool operator==(const STRING& rhl) const;
+	bool operator==(const STRING& rhl) const;
 	bool operator<(const STRING& rhl) const;			// 2025. 05. 08.
 
-	// 2025. 5. 22
+	//2025. 5. 22
 	auto operator<=> (const STRING& rhs) const {
 		return std::lexicographical_compare(pStr.get(), pStr.get() + length,
 			rhs.pStr.get(), rhs.pStr.get() + length);
