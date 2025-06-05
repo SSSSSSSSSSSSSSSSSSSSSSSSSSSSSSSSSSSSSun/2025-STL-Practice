@@ -23483,3 +23483,3165 @@ int main()
 
 	save("main.cpp");
 }
+
+=================================================
+저장한 시간: 2025-05-29 오후 4:04:56 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 27일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <array>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// [3] 이 소설에 사용된 알파벳의 개수를 다음과 같이 출력하라
+//		a - 1030
+//		b - 300
+//
+//		z - 30
+
+int main()
+{
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -1557;
+	}
+
+	std::multiset<STRING> ms{ std::istream_iterator<STRING>{in}, {} };
+	std::cout << "set으로 복사한 단어의 수 - " << ms.size() << '\n';
+
+	for (const STRING& s : ms) {
+		std::cout << s << " ";
+	}
+	std::cout << '\n';
+
+	std::array<size_t, 52> arr{};
+	for (const STRING& s : ms) {
+		for (const char& c : s) {
+			if (isupper(c)) {
+				arr[26 + c - 'a']++;
+			}
+			if (islower(c)) {
+				arr[c - 'a']++;
+			}
+		}
+	}
+
+	for (int i = 0; i < 26; ++i) {
+		char temp = 'a' + i;
+		std::cout << temp << " - " << arr[i] << '\n';
+	}
+	for (int i = 26; i < 52; ++i) {
+		char temp = 'A' + i - 26;
+		std::cout << temp << " - " << arr[i] << '\n';
+	}
+
+
+	// 동일 단어가 몇 개 있는지 알려주자
+
+	//while (true) {
+	//	STRING target;
+	//	std::cin >> target;
+
+	//	// 문제를 변형하여 입력한 단어가 추가되어도 멀티셋의 정렬상태가 바뀌지 않을 위치를 알고 싶다.
+	//	// 이 방식으로 개수를 셀 수도 있다.
+
+	//	auto [lower_bound, upper_bound]	= ms.equal_range(target);
+
+	//	if (lower_bound == upper_bound) {
+	//		std::cout << "찾는단어가 없음\n";
+	//	}
+	//	else {
+	//		std::cout << std::distance(lower_bound, upper_bound) << '\n';
+	//	}
+	//}
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-05-29 오후 4:05:19 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 27일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <array>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// [3] 이 소설에 사용된 알파벳의 개수를 다음과 같이 출력하라
+//		a - 1030
+//		b - 300
+//
+//		z - 30
+
+int main()
+{
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -1557;
+	}
+
+	std::multiset<STRING> ms{ std::istream_iterator<STRING>{in}, {} };
+	std::cout << "set으로 복사한 단어의 수 - " << ms.size() << '\n';
+
+	for (const STRING& s : ms) {
+		std::cout << s << " ";
+	}
+	std::cout << '\n';
+
+	std::array<size_t, 52> arr{};
+	for (const STRING& s : ms) {
+		for (const char& c : s) {
+			if (isupper(c)) {
+				arr[26 + c - 'a']++;
+			}
+			if (islower(c)) {
+				arr[c - 'a']++;
+			}
+		}
+	}
+
+	for (int i = 0; i < 26; ++i) {
+		char temp = 'a' + i;
+		std::cout << temp << " - " << arr[i] << '\n';
+	}
+	for (int i = 26; i < 52; ++i) {
+		char temp = 'A' + i - 26;
+		std::cout << temp << " - " << arr[i] << '\n';
+	}
+
+
+	// 동일 단어가 몇 개 있는지 알려주자
+
+	//while (true) {
+	//	STRING target;
+	//	std::cin >> target;
+
+	//	// 문제를 변형하여 입력한 단어가 추가되어도 멀티셋의 정렬상태가 바뀌지 않을 위치를 알고 싶다.
+	//	// 이 방식으로 개수를 셀 수도 있다.
+
+	//	auto [lower_bound, upper_bound]	= ms.equal_range(target);
+
+	//	if (lower_bound == upper_bound) {
+	//		std::cout << "찾는단어가 없음\n";
+	//	}
+	//	else {
+	//		std::cout << std::distance(lower_bound, upper_bound) << '\n';
+	//	}
+	//}
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-05-29 오후 4:09:19 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 27일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <array>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// [3] 이 소설에 사용된 알파벳의 개수를 다음과 같이 출력하라
+//		
+//		a - 1030
+//		b - 300
+//
+//		z - 30
+
+int main()
+{
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -1557;
+	}
+
+	std::multiset<STRING> ms{ std::istream_iterator<STRING>{in}, {} };
+	std::cout << "set으로 복사한 단어의 수 - " << ms.size() << '\n';
+
+	for (const STRING& s : ms) {
+		std::cout << s << " ";
+	}
+	std::cout << '\n';
+
+	std::array<size_t, 52> arr{};
+	for (const STRING& s : ms) {
+		for (const char& c : s) {
+			
+			if (isupper(c)) {
+				std::cout << 1;
+				arr[26 + c - 'A']++;
+			}
+			if (islower(c)) {
+				arr[c - 'a']++;
+			}
+		}
+	}
+
+	for (int i = 0; i < 26; ++i) {
+		char temp = 'a' + i;
+		std::cout << temp << " - " << arr[i] << '\n';
+	}
+	for (int i = 26; i < 52; ++i) {
+		char temp = 'A' + i - 26;
+		std::cout << temp << " - " << arr[i] << '\n';
+	}
+
+
+	// 동일 단어가 몇 개 있는지 알려주자
+
+	//while (true) {
+	//	STRING target;
+	//	std::cin >> target;
+
+	//	// 문제를 변형하여 입력한 단어가 추가되어도 멀티셋의 정렬상태가 바뀌지 않을 위치를 알고 싶다.
+	//	// 이 방식으로 개수를 셀 수도 있다.
+
+	//	auto [lower_bound, upper_bound]	= ms.equal_range(target);
+
+	//	if (lower_bound == upper_bound) {
+	//		std::cout << "찾는단어가 없음\n";
+	//	}
+	//	else {
+	//		std::cout << std::distance(lower_bound, upper_bound) << '\n';
+	//	}
+	//}
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-05-29 오후 4:11:48 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 27일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <array>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// [3] 이 소설에 사용된 알파벳의 개수를 다음과 같이 출력하라
+//		대문자는 소문자로 바꾸어서 센다
+//		a - 1030
+//		b - 300
+//
+//		z - 30
+
+int main()
+{
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -1557;
+	}
+
+	std::multiset<STRING> ms{ std::istream_iterator<STRING>{in}, {} };
+	std::cout << "set으로 복사한 단어의 수 - " << ms.size() << '\n';
+
+	for (const STRING& s : ms) {
+		std::cout << s << " ";
+	}
+	std::cout << '\n';
+
+	std::array<size_t, 26> arr{};
+	for (const STRING& s : ms) {
+		for (const char& c : s) {
+			arr[tolower(c) - 'a']++;
+		}
+	}
+
+	for (size_t i = 0; i < arr.size(); ++i) {
+		std::cout << 'a' + i << " - " << arr[i] << '\n';
+	}
+
+
+	// 동일 단어가 몇 개 있는지 알려주자
+
+	//while (true) {
+	//	STRING target;
+	//	std::cin >> target;
+
+	//	// 문제를 변형하여 입력한 단어가 추가되어도 멀티셋의 정렬상태가 바뀌지 않을 위치를 알고 싶다.
+	//	// 이 방식으로 개수를 셀 수도 있다.
+
+	//	auto [lower_bound, upper_bound]	= ms.equal_range(target);
+
+	//	if (lower_bound == upper_bound) {
+	//		std::cout << "찾는단어가 없음\n";
+	//	}
+	//	else {
+	//		std::cout << std::distance(lower_bound, upper_bound) << '\n';
+	//	}
+	//}
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-05-29 오후 4:13:43 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 27일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <array>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// [3] 이 소설에 사용된 알파벳의 개수를 다음과 같이 출력하라
+//		대문자는 소문자로 바꾸어서 센다
+//		a - 1030
+//		b - 300
+//
+//		z - 30
+
+int main()
+{
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -1557;
+	}
+
+	std::multiset<STRING> ms{ std::istream_iterator<STRING>{in}, {} };
+	std::cout << "set으로 복사한 단어의 수 - " << ms.size() << '\n';
+
+	for (const STRING& s : ms) {
+		std::cout << s << " ";
+	}
+	std::cout << '\n';
+
+	std::array<size_t, 26> arr{};
+	for (const STRING& s : ms) {
+		for (const char& c : s) {
+			arr[tolower(c) - 'a']++;
+		}
+	}
+
+	for (size_t i = 0; i < arr.size(); ++i) {
+		std::cout << (i + 'a') << " - " << arr[i] << '\n';
+	}
+
+
+	// 동일 단어가 몇 개 있는지 알려주자
+
+	//while (true) {
+	//	STRING target;
+	//	std::cin >> target;
+
+	//	// 문제를 변형하여 입력한 단어가 추가되어도 멀티셋의 정렬상태가 바뀌지 않을 위치를 알고 싶다.
+	//	// 이 방식으로 개수를 셀 수도 있다.
+
+	//	auto [lower_bound, upper_bound]	= ms.equal_range(target);
+
+	//	if (lower_bound == upper_bound) {
+	//		std::cout << "찾는단어가 없음\n";
+	//	}
+	//	else {
+	//		std::cout << std::distance(lower_bound, upper_bound) << '\n';
+	//	}
+	//}
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-05-29 오후 4:14:31 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 27일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <array>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// [3] 이 소설에 사용된 알파벳의 개수를 다음과 같이 출력하라
+//		대문자는 소문자로 바꾸어서 센다
+//		a - 1030
+//		b - 300
+//
+//		z - 30
+
+int main()
+{
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -1557;
+	}
+
+	std::multiset<STRING> ms{ std::istream_iterator<STRING>{in}, {} };
+	std::cout << "set으로 복사한 단어의 수 - " << ms.size() << '\n';
+
+	for (const STRING& s : ms) {
+		std::cout << s << " ";
+	}
+	std::cout << '\n';
+
+	std::array<size_t, 26> arr{};
+	for (const STRING& s : ms) {
+		for (char c : s) {
+			arr[tolower(c) - 'a']++;
+		}
+	}
+
+	for (size_t i = 0; i < arr.size(); ++i) {
+		std::cout << static_cast<char>(i + 'a') << " - " << arr[i] << '\n';
+	}
+
+
+	// 동일 단어가 몇 개 있는지 알려주자
+
+	//while (true) {
+	//	STRING target;
+	//	std::cin >> target;
+
+	//	// 문제를 변형하여 입력한 단어가 추가되어도 멀티셋의 정렬상태가 바뀌지 않을 위치를 알고 싶다.
+	//	// 이 방식으로 개수를 셀 수도 있다.
+
+	//	auto [lower_bound, upper_bound]	= ms.equal_range(target);
+
+	//	if (lower_bound == upper_bound) {
+	//		std::cout << "찾는단어가 없음\n";
+	//	}
+	//	else {
+	//		std::cout << std::distance(lower_bound, upper_bound) << '\n';
+	//	}
+	//}
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-05-29 오후 4:14:53 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 27일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <array>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// [3] 이 소설에 사용된 알파벳의 개수를 다음과 같이 출력하라
+//		대문자는 소문자로 바꾸어서 센다
+//		a - 1030
+//		b - 300
+//
+//		z - 30
+
+int main()
+{
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -1557;
+	}
+
+	std::multiset<STRING> ms{ std::istream_iterator<STRING>{in}, {} };
+	std::cout << "set으로 복사한 단어의 수 - " << ms.size() << '\n';
+
+	for (const STRING& s : ms) {
+		std::cout << s << " ";
+	}
+	std::cout << '\n';
+
+	std::array<size_t, 26> arr{};
+	for (const STRING& s : ms) {
+		for (char c : s) {
+			arr[tolower(c) - 'a']++;
+		}
+	}
+
+	for (size_t i = 0; i < arr.size(); ++i) {
+		std::cout << static_cast<char>(i + 'a') << " - " << arr[i] << '\n';
+	}
+
+
+	// 동일 단어가 몇 개 있는지 알려주자
+
+	//while (true) {
+	//	STRING target;
+	//	std::cin >> target;
+
+	//	// 문제를 변형하여 입력한 단어가 추가되어도 멀티셋의 정렬상태가 바뀌지 않을 위치를 알고 싶다.
+	//	// 이 방식으로 개수를 셀 수도 있다.
+
+	//	auto [lower_bound, upper_bound]	= ms.equal_range(target);
+
+	//	if (lower_bound == upper_bound) {
+	//		std::cout << "찾는단어가 없음\n";
+	//	}
+	//	else {
+	//		std::cout << std::distance(lower_bound, upper_bound) << '\n';
+	//	}
+	//}
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-05-29 오후 4:28:49 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 27일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <array>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// [3] 이 소설에 사용된 알파벳의 개수를 다음과 같이 출력하라
+//		대문자는 소문자로 바꾸어서 센다
+//		a - 1030
+//		b - 300
+//
+//		z - 30
+
+int main()
+{
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -1557;
+	}
+
+	std::multiset<STRING> ms{ std::istream_iterator<STRING>{in}, {} };
+	std::cout << "set으로 복사한 단어의 수 - " << ms.size() << '\n';
+
+	//for (const STRING& s : ms) {
+	//	std::cout << s << " ";
+	//}
+	//std::cout << '\n';
+
+	std::map<char, size_t> alphaNum;		// 연관배열
+	
+	for (const STRING& word: ms) {
+		for (char c : word) {
+			if (c = tolower(c)) {
+				alphaNum[c]++;
+			}
+		}
+	}
+
+	for (const auto& [lower, counted] : alphaNum) {
+		std::cout << lower << " - " << counted << '\n';
+	}
+
+	// 동일 단어가 몇 개 있는지 알려주자
+
+	//while (true) {
+	//	STRING target;
+	//	std::cin >> target;
+
+	//	// 문제를 변형하여 입력한 단어가 추가되어도 멀티셋의 정렬상태가 바뀌지 않을 위치를 알고 싶다.
+	//	// 이 방식으로 개수를 셀 수도 있다.
+
+	//	auto [lower_bound, upper_bound]	= ms.equal_range(target);
+
+	//	if (lower_bound == upper_bound) {
+	//		std::cout << "찾는단어가 없음\n";
+	//	}
+	//	else {
+	//		std::cout << std::distance(lower_bound, upper_bound) << '\n';
+	//	}
+	//}
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-05-29 오후 4:33:38 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 27일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <array>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// [3] 이 소설에 사용된 알파벳의 개수를 다음과 같이 출력하라
+//		대문자는 소문자로 바꾸어서 센다
+//		a - 1030
+//		b - 300
+//
+//		z - 30
+
+int main()
+{
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -1557;
+	}
+
+	std::multiset<STRING> ms{ std::istream_iterator<STRING>{in}, {} };
+	std::cout << "set으로 복사한 단어의 수 - " << ms.size() << '\n';
+
+	//for (const STRING& s : ms) {
+	//	std::cout << s << " ";
+	//}
+	//std::cout << '\n';
+
+	std::map<char, size_t> alphaNum;		// 연관배열
+	
+	for (const STRING& word: ms) {
+		for (char c : word) {
+			if (isalpha(c)) {
+				alphaNum[tolower(c)]++;
+			}
+		}
+	}
+
+	for (const auto& [lower, counted] : alphaNum) {
+		std::cout << lower << " - " << counted << '\n';
+	}
+
+	// 동일 단어가 몇 개 있는지 알려주자
+
+	//while (true) {
+	//	STRING target;
+	//	std::cin >> target;
+
+	//	// 문제를 변형하여 입력한 단어가 추가되어도 멀티셋의 정렬상태가 바뀌지 않을 위치를 알고 싶다.
+	//	// 이 방식으로 개수를 셀 수도 있다.
+
+	//	auto [lower_bound, upper_bound]	= ms.equal_range(target);
+
+	//	if (lower_bound == upper_bound) {
+	//		std::cout << "찾는단어가 없음\n";
+	//	}
+	//	else {
+	//		std::cout << std::distance(lower_bound, upper_bound) << '\n';
+	//	}
+	//}
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-05-29 오후 4:51:33 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 27일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <vector>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// [3] 이 소설에 사용된 알파벳의 개수를 다음과 같이 많이 사용된 순서대로 출력하라
+//		e - 13618
+//		t - 10726
+//		a - 8826
+//		..
+//		z - 78
+
+int main()
+{
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -1557;
+	}
+
+	std::multiset<STRING> ms{ std::istream_iterator<STRING>{in}, {} };
+	std::cout << "set으로 복사한 단어의 수 - " << ms.size() << '\n';
+
+	//for (const STRING& s : ms) {
+	//	std::cout << s << " ";
+	//}
+	//std::cout << '\n';
+
+	std::map<char, size_t> alphaNum;		// 연관배열
+	
+	for (const STRING& word: ms) {
+		for (char c : word) {
+			if (isalpha(c)) {
+				alphaNum[tolower(c)]++;
+			}
+		}
+	}
+
+
+	std::map<size_t, char> numAlpha;
+	
+
+	for (const auto& [lower, counted] : alphaNum) {
+		numAlpha[counted] = lower;
+	}
+
+	for (const auto& [lower, counted] : numAlpha) {
+		std::cout << lower << " - " << counted << '\n';
+	}
+
+	// 동일 단어가 몇 개 있는지 알려주자
+
+	//while (true) {
+	//	STRING target;
+	//	std::cin >> target;
+
+	//	// 문제를 변형하여 입력한 단어가 추가되어도 멀티셋의 정렬상태가 바뀌지 않을 위치를 알고 싶다.
+	//	// 이 방식으로 개수를 셀 수도 있다.
+
+	//	auto [lower_bound, upper_bound]	= ms.equal_range(target);
+
+	//	if (lower_bound == upper_bound) {
+	//		std::cout << "찾는단어가 없음\n";
+	//	}
+	//	else {
+	//		std::cout << std::distance(lower_bound, upper_bound) << '\n';
+	//	}
+	//}
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-05-29 오후 4:51:49 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 27일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <vector>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// [3] 이 소설에 사용된 알파벳의 개수를 다음과 같이 많이 사용된 순서대로 출력하라
+//		e - 13618
+//		t - 10726
+//		a - 8826
+//		..
+//		z - 78
+
+int main()
+{
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -1557;
+	}
+
+	std::multiset<STRING> ms{ std::istream_iterator<STRING>{in}, {} };
+	std::cout << "set으로 복사한 단어의 수 - " << ms.size() << '\n';
+
+	//for (const STRING& s : ms) {
+	//	std::cout << s << " ";
+	//}
+	//std::cout << '\n';
+
+	std::map<char, size_t> alphaNum;		// 연관배열
+	
+	for (const STRING& word: ms) {
+		for (char c : word) {
+			if (isalpha(c)) {
+				alphaNum[tolower(c)]++;
+			}
+		}
+	}
+
+
+	std::map<size_t, char> numAlpha;
+	
+
+	for (const auto& [lower, counted] : alphaNum) {
+		numAlpha[counted] = lower;
+	}
+
+	for (const auto& [counted, lower] : numAlpha) {
+		std::cout << lower << " - " << counted << '\n';
+	}
+
+	// 동일 단어가 몇 개 있는지 알려주자
+
+	//while (true) {
+	//	STRING target;
+	//	std::cin >> target;
+
+	//	// 문제를 변형하여 입력한 단어가 추가되어도 멀티셋의 정렬상태가 바뀌지 않을 위치를 알고 싶다.
+	//	// 이 방식으로 개수를 셀 수도 있다.
+
+	//	auto [lower_bound, upper_bound]	= ms.equal_range(target);
+
+	//	if (lower_bound == upper_bound) {
+	//		std::cout << "찾는단어가 없음\n";
+	//	}
+	//	else {
+	//		std::cout << std::distance(lower_bound, upper_bound) << '\n';
+	//	}
+	//}
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-05-29 오후 4:54:23 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 27일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <vector>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// [3] 이 소설에 사용된 알파벳의 개수를 다음과 같이 많이 사용된 순서대로 출력하라
+//		e - 13618
+//		t - 10726
+//		a - 8826
+//		..
+//		z - 78
+
+int main()
+{
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -1557;
+	}
+
+	std::multiset<STRING> ms{ std::istream_iterator<STRING>{in}, {} };
+	std::cout << "set으로 복사한 단어의 수 - " << ms.size() << '\n';
+
+	//for (const STRING& s : ms) {
+	//	std::cout << s << " ";
+	//}
+	//std::cout << '\n';
+
+	std::map<char, size_t,std::greater<size_t>> alphaNum;		// 연관배열
+	
+	for (const STRING& word: ms) {
+		for (char c : word) {
+			if (isalpha(c)) {
+				alphaNum[tolower(c)]++;
+			}
+		}
+	}
+
+
+	std::map<size_t, char> numAlpha;
+	
+
+	for (const auto& [lower, counted] : alphaNum) {
+		numAlpha[counted] = lower;
+	}
+	
+	for (const auto& [counted, lower] : numAlpha) {
+		std::cout << lower << " - " << counted << '\n';
+	}
+
+	// 동일 단어가 몇 개 있는지 알려주자
+
+	//while (true) {
+	//	STRING target;
+	//	std::cin >> target;
+
+	//	// 문제를 변형하여 입력한 단어가 추가되어도 멀티셋의 정렬상태가 바뀌지 않을 위치를 알고 싶다.
+	//	// 이 방식으로 개수를 셀 수도 있다.
+
+	//	auto [lower_bound, upper_bound]	= ms.equal_range(target);
+
+	//	if (lower_bound == upper_bound) {
+	//		std::cout << "찾는단어가 없음\n";
+	//	}
+	//	else {
+	//		std::cout << std::distance(lower_bound, upper_bound) << '\n';
+	//	}
+	//}
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-05-29 오후 4:54:36 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 27일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <vector>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// [3] 이 소설에 사용된 알파벳의 개수를 다음과 같이 많이 사용된 순서대로 출력하라
+//		e - 13618
+//		t - 10726
+//		a - 8826
+//		..
+//		z - 78
+
+int main()
+{
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -1557;
+	}
+
+	std::multiset<STRING> ms{ std::istream_iterator<STRING>{in}, {} };
+	std::cout << "set으로 복사한 단어의 수 - " << ms.size() << '\n';
+
+	//for (const STRING& s : ms) {
+	//	std::cout << s << " ";
+	//}
+	//std::cout << '\n';
+
+	std::map<char, size_t> alphaNum;		// 연관배열
+	
+	for (const STRING& word: ms) {
+		for (char c : word) {
+			if (isalpha(c)) {
+				alphaNum[tolower(c)]++;
+			}
+		}
+	}
+
+
+	std::map<size_t, char, std::greater<size_t>> numAlpha;
+	
+
+	for (const auto& [lower, counted] : alphaNum) {
+		numAlpha[counted] = lower;
+	}
+	
+	for (const auto& [counted, lower] : numAlpha) {
+		std::cout << lower << " - " << counted << '\n';
+	}
+
+	// 동일 단어가 몇 개 있는지 알려주자
+
+	//while (true) {
+	//	STRING target;
+	//	std::cin >> target;
+
+	//	// 문제를 변형하여 입력한 단어가 추가되어도 멀티셋의 정렬상태가 바뀌지 않을 위치를 알고 싶다.
+	//	// 이 방식으로 개수를 셀 수도 있다.
+
+	//	auto [lower_bound, upper_bound]	= ms.equal_range(target);
+
+	//	if (lower_bound == upper_bound) {
+	//		std::cout << "찾는단어가 없음\n";
+	//	}
+	//	else {
+	//		std::cout << std::distance(lower_bound, upper_bound) << '\n';
+	//	}
+	//}
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-05-29 오후 4:55:00 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 27일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <vector>
+#include <map>
+#include <ranges>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// [3] 이 소설에 사용된 알파벳의 개수를 다음과 같이 많이 사용된 순서대로 출력하라
+//		e - 13618
+//		t - 10726
+//		a - 8826
+//		..
+//		z - 78
+
+int main()
+{
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -1557;
+	}
+
+	std::multiset<STRING> ms{ std::istream_iterator<STRING>{in}, {} };
+	std::cout << "set으로 복사한 단어의 수 - " << ms.size() << '\n';
+
+	//for (const STRING& s : ms) {
+	//	std::cout << s << " ";
+	//}
+	//std::cout << '\n';
+
+	std::map<char, size_t> alphaNum;		// 연관배열
+	
+	for (const STRING& word: ms) {
+		for (char c : word) {
+			if (isalpha(c)) {
+				alphaNum[tolower(c)]++;
+			}
+		}
+	}
+
+
+	std::map<size_t, char, std::greater<size_t>> numAlpha;
+	
+
+	for (const auto& [lower, counted] : alphaNum) {
+		numAlpha[counted] = lower;
+	}
+	
+	for (const auto& [counted, lower] : numAlpha | std::views::reverse ) {
+		std::cout << lower << " - " << counted << '\n';
+	}
+
+	// 동일 단어가 몇 개 있는지 알려주자
+
+	//while (true) {
+	//	STRING target;
+	//	std::cin >> target;
+
+	//	// 문제를 변형하여 입력한 단어가 추가되어도 멀티셋의 정렬상태가 바뀌지 않을 위치를 알고 싶다.
+	//	// 이 방식으로 개수를 셀 수도 있다.
+
+	//	auto [lower_bound, upper_bound]	= ms.equal_range(target);
+
+	//	if (lower_bound == upper_bound) {
+	//		std::cout << "찾는단어가 없음\n";
+	//	}
+	//	else {
+	//		std::cout << std::distance(lower_bound, upper_bound) << '\n';
+	//	}
+	//}
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-05-29 오후 4:57:35 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 27일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <vector>
+#include <map>
+#include <ranges>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// [3] 이 소설에 사용된 알파벳의 개수를 다음과 같이 많이 사용된 순서대로 출력하라
+//		e - 13618
+//		t - 10726
+//		a - 8826
+//		..
+//		z - 78
+
+int main()
+{
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -1557;
+	}
+
+	std::multiset<STRING> ms{ std::istream_iterator<STRING>{in}, {} };
+	std::cout << "set으로 복사한 단어의 수 - " << ms.size() << '\n';
+
+	//for (const STRING& s : ms) {
+	//	std::cout << s << " ";
+	//}
+	//std::cout << '\n';
+
+	std::map<char, size_t> alphaNum;		// 연관배열
+	
+	for (const STRING& word: ms) {
+		for (char c : word) {
+			if (isalpha(c)) {
+				alphaNum[tolower(c)]++;
+			}
+		}
+	}
+
+
+	std::map<size_t, char, std::greater<size_t>> numAlpha;
+	
+
+	for (const auto& [lower, counted] : alphaNum) {
+		numAlpha[counted] = lower;
+	}
+	
+	for (const auto& [counted, lower] : numAlpha | std::views::reverse ) {
+		std::cout << lower << " - " << counted << '\n';
+	}
+
+	for (auto i = numAlpha.rbegin(); i != numAlpha.rend(); ++i) {
+		std::cout << i->second << " = " << i->first << '\n';
+	}
+
+	// 동일 단어가 몇 개 있는지 알려주자
+
+	//while (true) {
+	//	STRING target;
+	//	std::cin >> target;
+
+	//	// 문제를 변형하여 입력한 단어가 추가되어도 멀티셋의 정렬상태가 바뀌지 않을 위치를 알고 싶다.
+	//	// 이 방식으로 개수를 셀 수도 있다.
+
+	//	auto [lower_bound, upper_bound]	= ms.equal_range(target);
+
+	//	if (lower_bound == upper_bound) {
+	//		std::cout << "찾는단어가 없음\n";
+	//	}
+	//	else {
+	//		std::cout << std::distance(lower_bound, upper_bound) << '\n';
+	//	}
+	//}
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-05-29 오후 5:05:33 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 27일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <vector>
+#include <map>
+#include <ranges>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// [3] 단어의 사용횟수를 화면에 출력하라
+
+int main()
+{
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -1557;
+	}
+
+	std::map<STRING, size_t> wordNum;
+
+	STRING tempWord;
+	while (in >> tempWord) {
+		wordNum[tempWord]++;
+	}
+
+	for (auto [word, size] : wordNum) {
+		std::cout << word << " - " << size << '\n';
+	}
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 3:37:04 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <map>
+#include <ranges>
+#include <print>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// [3] 단어의 사용횟수를 화면에 출력하라
+// [4] 가장많이 사용된 단어부터 단어와 횟수를 모두 출력하라.
+//		The - 1xxx
+//
+
+int main()
+{
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -1557;
+	}
+
+	std::map<STRING, size_t> wordNum;
+
+	STRING tempWord;
+	while (in >> tempWord) {
+		wordNum[tempWord]++;
+	}
+
+	std::map<size_t, STRING> Numword;
+	for (auto [word, size] : wordNum) {
+		Numword[size] = word;
+	}
+
+	for (auto [size, word] : Numword) {
+		std::cout << word << " - " << size << '\n';
+		//std::println("{} : {}", word, size);
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 3:39:52 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <map>
+#include <ranges>
+#include <print>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// [3] 단어의 사용횟수를 화면에 출력하라
+// [4] 가장많이 사용된 단어부터 단어와 횟수를 모두 출력하라.
+//		The - 1xxx
+//
+
+int main()
+{
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -1557;
+	}
+
+	std::map<STRING, size_t> wordNum;
+
+	STRING tempWord;
+	while (in >> tempWord) {
+		wordNum[tempWord]++;
+	}
+
+	std::map < size_t, STRING > Numword;
+	for (auto [word, size] : wordNum) {
+		Numword[size] = word;
+	}
+
+	for (auto [size, word] : Numword | std::views::reverse) {
+		std::cout << word << " - " << size << '\n';
+		//std::println("{} : {}", word, size);
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 3:42:25 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <map>
+#include <ranges>
+#include <print>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// [3] 단어의 사용횟수를 화면에 출력하라
+// [4] 가장많이 사용된 단어부터 단어와 횟수를 모두 출력하라.
+//		The - 1xxx
+//
+
+int main()
+{
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -1557;
+	}
+
+	std::map<STRING, size_t> wordNum;
+
+	STRING tempWord;
+	while (in >> tempWord) {
+		wordNum[tempWord]++;
+	}
+
+	std::map < size_t, STRING > Numword;
+	for (auto [word, size] : wordNum) {
+		Numword[size] = word;
+	}
+
+	for (auto [size, word] : Numword | std::views::reverse) {
+		std::cout << word << " - " << size << '\n';
+		//std::println("{} : {}", word, size);
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 3:42:54 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <map>
+#include <ranges>
+#include <print>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// [3] 단어의 사용횟수를 화면에 출력하라
+// [4] 가장많이 사용된 단어부터 단어와 횟수를 모두 출력하라.
+//		The - 1xxx
+//
+
+int main()
+{
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -1557;
+	}
+
+	std::map<STRING, size_t> wordNum;
+
+	STRING tempWord;
+	while (in >> tempWord) {
+		wordNum[tempWord]++;
+	}
+
+	std::map < size_t, STRING , std::greater<size_t> > Numword;
+	for (auto [word, size] : wordNum) {
+		Numword[size] = word;
+	}
+
+	for (auto [size, word] : Numword) {
+		std::cout << word << " - " << size << '\n';
+		//std::println("{} : {}", word, size);
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 3:49:20 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <map>
+#include <ranges>
+#include <print>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
+// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
+// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
+// [3] 단어의 사용횟수를 화면에 출력하라
+// [4] 가장많이 사용된 단어부터 단어와 횟수를 모두 출력하라.
+//		The - 1xxx
+//
+
+int main()
+{
+	std::ifstream in { "이상한 나라의 앨리스.txt" };
+
+	if (not in) {
+		return -1557;
+	}
+
+	std::map<STRING, size_t> wordNum;
+
+	STRING tempWord;
+	while (in >> tempWord) {
+		wordNum[tempWord]++;
+	}
+
+	std::multimap < size_t, STRING , std::greater<size_t> > Numword;
+	for (auto [word, size] : wordNum) {
+		Numword.insert(std::pair<size_t, STRING>{ size, word });
+		//Numword.insert(std::make_pair(size, word));
+		//Numword[size] = word;
+	}
+
+	for (auto [size, word] : Numword) {
+		std::cout << word << " - " << size << '\n';
+		//std::println("{} : {}", word, size);
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 4:02:12 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] uniform 분포는 uniform 한가?
+// 전체 데이터를 20개의 구간으로 나누어 개수를 세서 화면 출력한다.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 1999'9999 };
+
+std::array<int, 2000'0000> arr;
+
+int main()
+{
+	for (int& num : arr) {
+		num == uid(dre);
+	}
+
+	std::map<int,size_t> 구간과개수;
+
+	for (const int& num : arr) {
+		구간과개수[num / 200'0000]++;
+	}
+	
+
+	for (auto [구간, 개수] : 구간과개수) {
+		std::cout << 구간 + 1 << " - " << 개수 << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 4:02:25 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] uniform 분포는 uniform 한가?
+// 전체 데이터를 20개의 구간으로 나누어 개수를 세서 화면 출력한다.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 1999'9999 };
+
+std::array<int, 2000'0000> arr;
+
+int main()
+{
+	for (int& num : arr) {
+		num = uid(dre);
+	}
+
+	std::map<int,size_t> 구간과개수;
+
+	for (const int& num : arr) {
+		구간과개수[num / 200'0000]++;
+	}
+	
+
+	for (auto [구간, 개수] : 구간과개수) {
+		std::cout << 구간 + 1 << " - " << 개수 << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 4:04:10 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] uniform 분포는 uniform 한가?
+// 전체 데이터를 20개의 구간으로 나누어 개수를 세서 화면 출력한다.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 1999'9999 };
+
+std::array<int, 2000'0000> arr;
+
+int main()
+{
+	for (int& num : arr) {
+		num = uid(dre);
+	}
+
+	std::map<int,size_t> 구간과개수;
+
+	for (const int& num : arr) {
+		구간과개수[num / 200'0000]++;
+	}
+	
+
+	for (auto [구간, 개수] : 구간과개수) {
+		std::cout << 구간 + 1 << " - " << 개수 << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 4:04:14 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] uniform 분포는 uniform 한가?
+// 전체 데이터를 20개의 구간으로 나누어 개수를 세서 화면 출력한다.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 1999'9999 };
+
+std::array<int, 2000'0000> arr;
+
+int main()
+{
+	for (int& num : arr) {
+		num = uid(dre);
+	}
+
+	std::map<int,size_t> 구간과개수;
+
+	for (const int& num : arr) {
+		구간과개수[num / 200'0000]++;
+	}
+	
+
+	for (auto [구간, 개수] : 구간과개수) {
+		std::cout << 구간 + 1 << " - " << 개수 << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 4:04:33 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] uniform 분포는 uniform 한가?
+// 전체 데이터를 20개의 구간으로 나누어 개수를 세서 화면 출력한다.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 1999'9999 };
+
+std::array<int, 2000'0000> arr;
+
+int main()
+{
+	for (int& num : arr) {
+		num = uid(dre);
+	}
+
+	std::map<int,size_t> 구간과개수;
+
+	for (const int& num : arr) {
+		구간과개수[num / 200'0000]++;
+	}
+	
+
+	for (auto [구간, 개수] : 구간과개수) {
+		std::cout << 구간 + 1 << " - " << 개수 << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 4:06:50 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] uniform 분포는 uniform 한가?
+// 전체 데이터를 20개의 구간으로 나누어 개수를 세서 화면 출력한다.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 1999'9999 };
+
+std::array<int, 2000'0000> arr;
+
+int main()
+{
+	for (int& num : arr) {
+		num = uid(dre);
+	}
+
+	std::map<int,size_t> 구간과개수;
+
+	for (const int& num : arr) {
+		구간과개수[num / 100'0000]++;
+	}
+	
+
+	for (auto [구간, 개수] : 구간과개수) {
+		std::cout << 구간 + 1 << " - " << 개수 << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 4:08:12 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] uniform 분포는 uniform 한가?
+// 전체 데이터를 20개의 구간으로 나누어 개수를 세서 화면 출력한다.
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 0, 199'9999 };
+
+std::array<int, 2000'0000> arr;
+
+int main()
+{
+	for (int& num : arr) {
+		num = uid(dre);
+	}
+
+	std::map<int,size_t> 구간과개수;
+
+	for (const int& num : arr) {
+		구간과개수[num / 10'0000]++;
+	}
+	
+
+	for (auto [구간, 개수] : 구간과개수) {
+		std::cout << 구간 + 1 << " - " << 개수 << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 4:13:22 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] uniform 분포는 uniform 한가?
+// 전체 데이터를 20개의 구간으로 나누어 개수를 세서 화면 출력한다.
+
+std::default_random_engine dre;		//
+std::normal_distribution nd;
+
+std::array<int, 2000'0000> arr;
+
+int main()
+{
+
+	for (int i = 0; i < 20; ++i) {
+		std::cout << nd << '\n';
+	}
+	//for (int& num : arr) {
+	//	num = nd(dre);
+	//}
+
+	//std::map<int,size_t> 구간과개수;
+
+	//for (const int& num : arr) {
+	//	구간과개수[num / 10'0000]++;
+	//}
+	//
+
+	//for (auto [구간, 개수] : 구간과개수) {
+	//	std::cout << 구간 + 1 << " - " << 개수 << '\n';
+	//}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 4:13:39 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] uniform 분포는 uniform 한가?
+// 전체 데이터를 20개의 구간으로 나누어 개수를 세서 화면 출력한다.
+
+std::default_random_engine dre;		//
+std::normal_distribution nd;
+
+std::array<int, 2000'0000> arr;
+
+int main()
+{
+
+	for (int i = 0; i < 20; ++i) {
+		std::cout << nd(dre) << '\n';
+	}
+	//for (int& num : arr) {
+	//	num = nd(dre);
+	//}
+
+	//std::map<int,size_t> 구간과개수;
+
+	//for (const int& num : arr) {
+	//	구간과개수[num / 10'0000]++;
+	//}
+	//
+
+	//for (auto [구간, 개수] : 구간과개수) {
+	//	std::cout << 구간 + 1 << " - " << 개수 << '\n';
+	//}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 4:15:44 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] uniform 분포는 uniform 한가?
+// 전체 데이터를 20개의 구간으로 나누어 개수를 세서 화면 출력한다.
+
+std::default_random_engine dre;		//
+std::normal_distribution nd{0.0, 3.0};
+
+std::array<int, 2000'0000> arr;
+
+int main()
+{
+
+	for (int i = 0; i < 20; ++i) {
+		std::cout << nd(dre) << '\n';
+	}
+	//for (int& num : arr) {
+	//	num = nd(dre);
+	//}
+
+	//std::map<int,size_t> 구간과개수;
+
+	//for (const int& num : arr) {
+	//	구간과개수[num / 10'0000]++;
+	//}
+	//
+
+	//for (auto [구간, 개수] : 구간과개수) {
+	//	std::cout << 구간 + 1 << " - " << 개수 << '\n';
+	//}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 4:23:00 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] uniform 분포는 uniform 한가?
+// 전체 데이터를 20개의 구간으로 나누어 개수를 세서 화면 출력한다.
+
+std::default_random_engine dre;		//
+std::normal_distribution nd{0.0, 3.0};
+
+std::array<int, 2000'0000> arr;
+
+int main()
+{
+	for (int& num : arr) {
+		double d = nd(dre);
+		d *= 30'0000;
+		d += 100'0000;
+		if ((0 < d) && (d < 200'0000)) {
+			num = (int)d;
+		}
+	}
+
+	std::map<int,size_t> 구간과개수;
+
+	for (const int& num : arr) {
+		구간과개수[num / 10'0000]++;
+	}
+	
+
+	for (auto [구간, 개수] : 구간과개수) {
+		std::cout << 구간 + 1 << " - " << 개수 << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 4:23:25 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] uniform 분포는 uniform 한가?
+// 전체 데이터를 20개의 구간으로 나누어 개수를 세서 화면 출력한다.
+
+std::default_random_engine dre;		//
+std::normal_distribution nd{0.0, 3.0};
+
+std::array<int, 2000'0000> arr;
+
+int main()
+{
+	for (int& num : arr) {
+		double d = nd(dre);
+		d *= 3'0000;
+		d += 100'0000;
+		if ((0 < d) && (d < 200'0000)) {
+			num = (int)d;
+		}
+	}
+
+	std::map<int,size_t> 구간과개수;
+
+	for (const int& num : arr) {
+		구간과개수[num / 10'0000]++;
+	}
+	
+
+	for (auto [구간, 개수] : 구간과개수) {
+		std::cout << 구간 + 1 << " - " << 개수 << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 4:23:37 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] uniform 분포는 uniform 한가?
+// 전체 데이터를 20개의 구간으로 나누어 개수를 세서 화면 출력한다.
+
+std::default_random_engine dre;		//
+std::normal_distribution nd{0.0, 3.0};
+
+std::array<int, 2000'0000> arr;
+
+int main()
+{
+	for (int& num : arr) {
+		double d = nd(dre);
+		d *= 8'0000;
+		d += 100'0000;
+		if ((0 < d) && (d < 200'0000)) {
+			num = (int)d;
+		}
+	}
+
+	std::map<int,size_t> 구간과개수;
+
+	for (const int& num : arr) {
+		구간과개수[num / 10'0000]++;
+	}
+	
+
+	for (auto [구간, 개수] : 구간과개수) {
+		std::cout << 구간 + 1 << " - " << 개수 << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 4:23:55 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] uniform 분포는 uniform 한가?
+// 전체 데이터를 20개의 구간으로 나누어 개수를 세서 화면 출력한다.
+
+std::default_random_engine dre;		//
+std::normal_distribution nd{0.0, 3.0};
+
+std::array<int, 2000'0000> arr;
+
+int main()
+{
+	for (int& num : arr) {
+		double d = nd(dre);
+		d *= 10'0000;
+		d += 100'0000;
+		if ((0 < d) && (d < 200'0000)) {
+			num = (int)d;
+		}
+	}
+
+	std::map<int,size_t> 구간과개수;
+
+	for (const int& num : arr) {
+		구간과개수[num / 10'0000]++;
+	}
+	
+
+	for (auto [구간, 개수] : 구간과개수) {
+		std::cout << 구간 + 1 << " - " << 개수 << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 4:24:16 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] uniform 분포는 uniform 한가?
+// 전체 데이터를 20개의 구간으로 나누어 개수를 세서 화면 출력한다.
+
+std::default_random_engine dre;		//
+std::normal_distribution nd{0.0, 1.0};
+
+std::array<int, 2000'0000> arr;
+
+int main()
+{
+	for (int& num : arr) {
+		double d = nd(dre);
+		d *= 10'0000;
+		d += 100'0000;
+		if ((0 < d) && (d < 200'0000)) {
+			num = (int)d;
+		}
+	}
+
+	std::map<int,size_t> 구간과개수;
+
+	for (const int& num : arr) {
+		구간과개수[num / 10'0000]++;
+	}
+	
+
+	for (auto [구간, 개수] : 구간과개수) {
+		std::cout << 구간 + 1 << " - " << 개수 << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 4:24:42 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] uniform 분포는 uniform 한가?
+// 전체 데이터를 20개의 구간으로 나누어 개수를 세서 화면 출력한다.
+
+std::default_random_engine dre;		//
+std::normal_distribution nd{0.0, 0.1};
+
+std::array<int, 2000'0000> arr;
+
+int main()
+{
+	for (int& num : arr) {
+		double d = nd(dre);
+		d *= 10'0000;
+		d += 100'0000;
+		if ((0 < d) && (d < 200'0000)) {
+			num = (int)d;
+		}
+	}
+
+	std::map<int,size_t> 구간과개수;
+
+	for (const int& num : arr) {
+		구간과개수[num / 10'0000]++;
+	}
+	
+
+	for (auto [구간, 개수] : 구간과개수) {
+		std::cout << 구간 + 1 << " - " << 개수 << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 4:24:50 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] uniform 분포는 uniform 한가?
+// 전체 데이터를 20개의 구간으로 나누어 개수를 세서 화면 출력한다.
+
+std::default_random_engine dre;		//
+std::normal_distribution nd{0.0, 0.2};
+
+std::array<int, 2000'0000> arr;
+
+int main()
+{
+	for (int& num : arr) {
+		double d = nd(dre);
+		d *= 10'0000;
+		d += 100'0000;
+		if ((0 < d) && (d < 200'0000)) {
+			num = (int)d;
+		}
+	}
+
+	std::map<int,size_t> 구간과개수;
+
+	for (const int& num : arr) {
+		구간과개수[num / 10'0000]++;
+	}
+	
+
+	for (auto [구간, 개수] : 구간과개수) {
+		std::cout << 구간 + 1 << " - " << 개수 << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 4:25:00 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
+//							  정렬은 key 값을 기준으로 한다
+//  set / multiset			- key == value
+//  map / multimap			- pair<key, value>
+//------------------------------------------------------------------
+#include <iostream>
+#include <random>
+#include <array>
+#include <map>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// [문제] uniform 분포는 uniform 한가?
+// 전체 데이터를 20개의 구간으로 나누어 개수를 세서 화면 출력한다.
+
+std::default_random_engine dre;		//
+std::normal_distribution nd{0.0, 0.1};
+
+std::array<int, 2000'0000> arr;
+
+int main()
+{
+	for (int& num : arr) {
+		double d = nd(dre);
+		d *= 20'0000;
+		d += 100'0000;
+		if ((0 < d) && (d < 200'0000)) {
+			num = (int)d;
+		}
+	}
+
+	std::map<int,size_t> 구간과개수;
+
+	for (const int& num : arr) {
+		구간과개수[num / 10'0000]++;
+	}
+	
+
+	for (auto [구간, 개수] : 구간과개수) {
+		std::cout << 구간 + 1 << " - " << 개수 << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 4:59:43 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Unordered Associative Containers - hash 구조
+//------------------------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+template <>
+struct std::hash<STRING> {
+	size_t operator()(const STRING& s) const {
+		//std::string str(s.begin(), s.end());
+		return std::hash<std::string>{}(std::string(s.begin(), s.end()));
+	}
+};
+
+int main()
+{
+
+	std::unordered_set<STRING, std::hash<STRING>> us{"1", "22", "333", "4444", "55555"};
+
+	for (const STRING& s : us) {
+		std::cout << s << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 5:03:35 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Unordered Associative Containers - hash 구조
+//------------------------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+template <>
+struct std::hash<STRING> {
+	size_t operator()(const STRING& s) const {
+		//std::string str(s.begin(), s.end());
+		return std::hash<std::string>{}(std::string(s.begin(), s.end()));
+	}
+};
+
+int main()
+{
+
+	std::unordered_set<STRING, std::hash<STRING>> us{"1", "22", "333", "4444", "55555"};
+
+	for (const STRING& s : us) {
+		std::cout << s << '\n';
+	}
+
+	// unordered_set의 메모리를 화면에 출력한다.
+
+	for (size_t bc = 0; bc < us.bucket_count(); ++bc) {
+		std::print("[{:3}]", bc);
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 5:03:49 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Unordered Associative Containers - hash 구조
+//------------------------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+template <>
+struct std::hash<STRING> {
+	size_t operator()(const STRING& s) const {
+		//std::string str(s.begin(), s.end());
+		return std::hash<std::string>{}(std::string(s.begin(), s.end()));
+	}
+};
+
+int main()
+{
+
+	std::unordered_set<STRING, std::hash<STRING>> us{"1", "22", "333", "4444", "55555"};
+
+	for (const STRING& s : us) {
+		std::cout << s << '\n';
+	}
+
+	// unordered_set의 메모리를 화면에 출력한다.
+
+	for (size_t bc = 0; bc < us.bucket_count(); ++bc) {
+		std::print("[{:3}]\n", bc);
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 5:04:12 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Unordered Associative Containers - hash 구조
+//------------------------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+template <>
+struct std::hash<STRING> {
+	size_t operator()(const STRING& s) const {
+		//std::string str(s.begin(), s.end());
+		return std::hash<std::string>{}(std::string(s.begin(), s.end()));
+	}
+};
+
+int main()
+{
+
+	std::unordered_set<STRING, std::hash<STRING>> us{"1", "22", "333", "4444", "55555"};
+
+	for (const STRING& s : us) {
+		std::cout << s << '\n';
+	}
+
+	// unordered_set의 메모리를 화면에 출력한다.
+
+	for (size_t bc = 0; bc < us.bucket_count(); ++bc) {
+		std::print("[{:>3}]\n", bc);
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-05 오후 5:06:35 목요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// Unordered Associative Containers - hash 구조
+//------------------------------------------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <print>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+template <>
+struct std::hash<STRING> {
+	size_t operator()(const STRING& s) const {
+		//std::string str(s.begin(), s.end());
+		return std::hash<std::string>{}(std::string(s.begin(), s.end()));
+	}
+};
+
+int main()
+{
+
+	std::unordered_set<STRING, std::hash<STRING>> us{"1", "22", "333", "4444", "55555"};
+
+	for (const STRING& s : us) {
+		std::cout << s << '\n';
+	}
+
+	// unordered_set의 메모리를 화면에 출력한다.
+
+	for (size_t bc = 0; bc < us.bucket_count(); ++bc) {
+		std::print("[{:>3}]", bc);
+		for (auto i = us.begin(bc); i != us.end(bc);++i) {
+			std::print(" -> {:}", std::string{ i->begin(), i->end() });
+		}
+
+		std::cout << '\n';
+	}
+
+	save("main.cpp");
+}

@@ -1,20 +1,15 @@
 //------------------------------------------------------------------
-// 2025 STL 화56목78	5월 27일 목요일							(13주 1일)
+// 2025 STL 화56목78	5월 29일 목요일							(13주 1일)
 // 6월 19일 목요일 15주 2일 - 기말 시험
 //------------------------------------------------------------------
 // VS 버전 - 17.13 이상
 // Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
 //------------------------------------------------------------------
-// Associative Container	- key와 연관된 value를 항상 정렬상태로 유지한다.
-//							  정렬은 key 값을 기준으로 한다
-//  set / multiset			- key == value
-//  map / multimap			- pair<key, value>
+// Unordered Associative Containers - hash 구조
 //------------------------------------------------------------------
 #include <iostream>
-#include <fstream>
-#include <algorithm>
-#include <set>
-#include <vector>
+#include <unordered_set>
+#include <print>
 #include "save.h"
 #include "STRING.h"
 // using namespace std;					// 우리는 이렇게 하면 안된다
@@ -23,36 +18,40 @@
 
 extern bool watching;					// 관찰하려면 true로 설정
 
-// 강의자료 "이상한 나라의 앨리스.txt"를 다운받는다.
-// [1] 여기에 있는 모든 단어를 multiset<STRING>로 저장하라.
-// [2] 모두 몇 단어 인지 화면에 출력하라. - 26626
-// 
+template <>
+struct std::hash<STRING> {
+	size_t operator()(const STRING& s) const {
+		//std::string str(s.begin(), s.end());
+		return std::hash<std::string>{}(std::string(s.begin(), s.end()));
+	}
+};
 
 int main()
 {
-	std::ifstream in { "이상한 나라의 앨리스.txt" };
 
-	if (not in) {
-		return -1557;
+	std::unordered_set<STRING, std::hash<STRING>> us{"1", "22", "333", "4444", "55555"};
+
+	for (const STRING& s : us) {
+		std::cout << s << '\n';
 	}
 
-	std::multiset<STRING> ms{ std::istream_iterator<STRING>{in}, {} };
-	std::cout << "set으로 복사한 단어의 수 - " << ms.size() << '\n';
-
-	for (const STRING& s : ms) {
-		std::cout << s << " ";
-	}
-	std::cout << '\n';
-
-	// 동일 단어가 몇 개 있는지 알려주자
+	// unordered_set의 메모리를 화면에 출력한다.
 
 	while (true) {
-		STRING target;
-		std::cin >> target;
+		for (size_t bc = 0; bc < us.bucket_count(); ++bc) {
+			std::print("[{:>3}]", bc);
+			for (auto i = us.begin(bc); i != us.end(bc); ++i) {
+				std::print(" -> {:}", std::string{ i->begin(), i->end() });
+			}
 
-		std::cout << ms.count(target) << '\n';
+			std::cout << '\n';
+		}
+
+		std::cout << "추가할 STRING - ";
+		STRING s;
+		std::cin >> s;
+
+		us.insert(s);
 	}
-
-
 	save("main.cpp");
 }
