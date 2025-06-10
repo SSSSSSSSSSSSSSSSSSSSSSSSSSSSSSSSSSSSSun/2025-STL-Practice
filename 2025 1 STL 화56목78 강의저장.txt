@@ -26645,3 +26645,1130 @@ int main()
 
 	save("main.cpp");
 }
+
+=================================================
+저장한 시간: 2025-06-10 오후 1:51:36 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	6월 10일 화요일							(14주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// 컨테이너들의 찾기 실력 검증
+// 1. Sequence				- vector		O(N)
+// 2. Associaitve			- set			O(log N)
+// 3. Unordered Associative	- unordered_set	O(1)
+//------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// int값 1000'0000개 중에서 10'000개의 int를 찾아본다
+
+const int NUM { 1000'0000 };
+const int FIND_NUM{ 1'0000 };
+
+std::array<int, NUM> a;
+std::array<int, FIND_NUM> find_a;
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 1, 1000'0000 };
+
+int main()
+{
+	for (int& num : a) {
+		num = uid(dre);
+	}
+	for (int& num : find_a) {
+		num = uid(dre);
+	}
+
+	{
+		std::cout << "vector - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		std::vector<int> v (a.begin(), a.end());
+		std::cout << "vector의 원소 수 - " << v.size() << '\n';
+
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		for (int num : find_a) {
+			auto p = std::find(v.begin(), v.end(), num);
+			if (p != v.end()) {
+				++count;
+			}
+		}
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << 'n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-10 오후 1:52:03 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	6월 10일 화요일							(14주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// 컨테이너들의 찾기 실력 검증
+// 1. Sequence				- vector		O(N)
+// 2. Associaitve			- set			O(log N)
+// 3. Unordered Associative	- unordered_set	O(1)
+//------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// int값 1000'0000개 중에서 10'000개의 int를 찾아본다
+
+const int NUM { 1000'0000 };
+const int FIND_NUM{ 1'0000 };
+
+std::array<int, NUM> a;
+std::array<int, FIND_NUM> find_a;
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 1, 1000'0000 };
+
+int main()
+{
+	for (int& num : a) {
+		num = uid(dre);
+	}
+	for (int& num : find_a) {
+		num = uid(dre);
+	}
+
+	{
+		std::cout << "vector - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		std::vector<int> v (a.begin(), a.end());
+		std::cout << "vector의 원소 수 - " << v.size() << '\n';
+
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		for (int num : find_a) {
+			auto p = std::find(v.begin(), v.end(), num);
+			if (p != v.end()) {
+				++count;
+			}
+		}
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+
+
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-10 오후 2:08:53 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	6월 10일 화요일							(14주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// 컨테이너들의 찾기 실력 검증
+// 1. Sequence				- vector		O(N)
+// 2. Associaitve			- multi_set		O(log N)
+// 3. Unordered Associative	- unordered_set	O(1)
+//------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// int값 1000'0000개 중에서 10'000개의 int를 찾아본다
+
+const int NUM { 1'0000 };
+const int FIND_NUM{ 1'0 };
+
+std::array<int, NUM> a;
+std::array<int, FIND_NUM> find_a;
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 1, 1000'0000 };
+
+int main()
+{
+	for (int& num : a) {
+		num = uid(dre);
+	}
+	for (int& num : find_a) {
+		num = uid(dre);
+	}
+
+	{
+		std::cout << "데이터를 vector으로 구성하는 중...." << std::endl;
+		std::vector<int> v (a.begin(), a.end());
+		std::cout << "vector의 원소 수 - " << v.size() << '\n';
+
+
+		std::cout << "vector - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		for (int num : find_a) {
+			auto p = std::find(v.begin(), v.end(), num);
+			if (p != v.end()) {
+				++count;
+			}
+		}
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	std::cout << "\n\n";
+
+	{
+		std::cout << "데이터를 multiset으로 구성하는 중...." << std::endl;
+		std::multiset<int> ms(a.begin(), a.end());
+		std::cout << "vector의 원소 수 - " << ms.size() << '\n';
+
+		std::cout << "multiset - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		for (int num : find_a) {
+			auto p = std::find(ms.begin(), ms.end(), num);
+			if (p != ms.end()) {
+				++count;
+			}
+		}
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	{
+		std::cout << "데이터를 unordered_multiset으로 구성하는 중...." << std::endl;
+		std::unordered_multiset<int> ums(a.begin(), a.end());
+		std::cout << "vector의 원소 수 - " << ums.size() << '\n';
+
+		std::cout << "multiset - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		for (int num : find_a) {
+			auto p = std::find(ums.begin(), ums.end(), num);
+			if (p != ums.end()) {
+				++count;
+			}
+		}
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-10 오후 2:09:10 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	6월 10일 화요일							(14주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// 컨테이너들의 찾기 실력 검증
+// 1. Sequence				- vector		O(N)
+// 2. Associaitve			- multi_set		O(log N)
+// 3. Unordered Associative	- unordered_set	O(1)
+//------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// int값 1000'0000개 중에서 10'000개의 int를 찾아본다
+
+const int NUM { 1'0000 };
+const int FIND_NUM{ 100 };
+
+std::array<int, NUM> a;
+std::array<int, FIND_NUM> find_a;
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 1, 1000'0000 };
+
+int main()
+{
+	for (int& num : a) {
+		num = uid(dre);
+	}
+	for (int& num : find_a) {
+		num = uid(dre);
+	}
+
+	{
+		std::cout << "데이터를 vector으로 구성하는 중...." << std::endl;
+		std::vector<int> v (a.begin(), a.end());
+		std::cout << "vector의 원소 수 - " << v.size() << '\n';
+
+
+		std::cout << "vector - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		for (int num : find_a) {
+			auto p = std::find(v.begin(), v.end(), num);
+			if (p != v.end()) {
+				++count;
+			}
+		}
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	std::cout << "\n\n";
+
+	{
+		std::cout << "데이터를 multiset으로 구성하는 중...." << std::endl;
+		std::multiset<int> ms(a.begin(), a.end());
+		std::cout << "vector의 원소 수 - " << ms.size() << '\n';
+
+		std::cout << "multiset - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		for (int num : find_a) {
+			auto p = std::find(ms.begin(), ms.end(), num);
+			if (p != ms.end()) {
+				++count;
+			}
+		}
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	{
+		std::cout << "데이터를 unordered_multiset으로 구성하는 중...." << std::endl;
+		std::unordered_multiset<int> ums(a.begin(), a.end());
+		std::cout << "vector의 원소 수 - " << ums.size() << '\n';
+
+		std::cout << "multiset - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		for (int num : find_a) {
+			auto p = std::find(ums.begin(), ums.end(), num);
+			if (p != ums.end()) {
+				++count;
+			}
+		}
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-10 오후 2:09:32 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	6월 10일 화요일							(14주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// 컨테이너들의 찾기 실력 검증
+// 1. Sequence				- vector		O(N)
+// 2. Associaitve			- multi_set		O(log N)
+// 3. Unordered Associative	- unordered_set	O(1)
+//------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// int값 1000'0000개 중에서 10'000개의 int를 찾아본다
+
+const int NUM { 10'0000 };
+const int FIND_NUM{ 100 };
+
+std::array<int, NUM> a;
+std::array<int, FIND_NUM> find_a;
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 1, 1000'0000 };
+
+int main()
+{
+	for (int& num : a) {
+		num = uid(dre);
+	}
+	for (int& num : find_a) {
+		num = uid(dre);
+	}
+
+	{
+		std::cout << "데이터를 vector으로 구성하는 중...." << std::endl;
+		std::vector<int> v (a.begin(), a.end());
+		std::cout << "vector의 원소 수 - " << v.size() << '\n';
+
+
+		std::cout << "vector - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		for (int num : find_a) {
+			auto p = std::find(v.begin(), v.end(), num);
+			if (p != v.end()) {
+				++count;
+			}
+		}
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	std::cout << "\n\n";
+
+	{
+		std::cout << "데이터를 multiset으로 구성하는 중...." << std::endl;
+		std::multiset<int> ms(a.begin(), a.end());
+		std::cout << "vector의 원소 수 - " << ms.size() << '\n';
+
+		std::cout << "multiset - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		for (int num : find_a) {
+			auto p = std::find(ms.begin(), ms.end(), num);
+			if (p != ms.end()) {
+				++count;
+			}
+		}
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	{
+		std::cout << "데이터를 unordered_multiset으로 구성하는 중...." << std::endl;
+		std::unordered_multiset<int> ums(a.begin(), a.end());
+		std::cout << "vector의 원소 수 - " << ums.size() << '\n';
+
+		std::cout << "multiset - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		for (int num : find_a) {
+			auto p = std::find(ums.begin(), ums.end(), num);
+			if (p != ums.end()) {
+				++count;
+			}
+		}
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-10 오후 2:09:44 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	6월 10일 화요일							(14주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// 컨테이너들의 찾기 실력 검증
+// 1. Sequence				- vector		O(N)
+// 2. Associaitve			- multi_set		O(log N)
+// 3. Unordered Associative	- unordered_set	O(1)
+//------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// int값 1000'0000개 중에서 10'000개의 int를 찾아본다
+
+const int NUM { 10'0000 };
+const int FIND_NUM{ 500 };
+
+std::array<int, NUM> a;
+std::array<int, FIND_NUM> find_a;
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 1, 1000'0000 };
+
+int main()
+{
+	for (int& num : a) {
+		num = uid(dre);
+	}
+	for (int& num : find_a) {
+		num = uid(dre);
+	}
+
+	{
+		std::cout << "데이터를 vector으로 구성하는 중...." << std::endl;
+		std::vector<int> v (a.begin(), a.end());
+		std::cout << "vector의 원소 수 - " << v.size() << '\n';
+
+
+		std::cout << "vector - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		for (int num : find_a) {
+			auto p = std::find(v.begin(), v.end(), num);
+			if (p != v.end()) {
+				++count;
+			}
+		}
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	std::cout << "\n\n";
+
+	{
+		std::cout << "데이터를 multiset으로 구성하는 중...." << std::endl;
+		std::multiset<int> ms(a.begin(), a.end());
+		std::cout << "vector의 원소 수 - " << ms.size() << '\n';
+
+		std::cout << "multiset - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		for (int num : find_a) {
+			auto p = std::find(ms.begin(), ms.end(), num);
+			if (p != ms.end()) {
+				++count;
+			}
+		}
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	{
+		std::cout << "데이터를 unordered_multiset으로 구성하는 중...." << std::endl;
+		std::unordered_multiset<int> ums(a.begin(), a.end());
+		std::cout << "vector의 원소 수 - " << ums.size() << '\n';
+
+		std::cout << "multiset - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		for (int num : find_a) {
+			auto p = std::find(ums.begin(), ums.end(), num);
+			if (p != ums.end()) {
+				++count;
+			}
+		}
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-10 오후 2:13:06 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	6월 10일 화요일							(14주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// 컨테이너들의 찾기 실력 검증
+// 1. Sequence				- vector		O(N)
+// 2. Associaitve			- multi_set		O(log N)
+// 3. Unordered Associative	- unordered_set	O(1)
+//------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// int값 1000'0000개 중에서 10'000개의 int를 찾아본다
+
+const int NUM { 1000'0000 };
+const int FIND_NUM{ 1'000 };
+
+std::array<int, NUM> a;
+std::array<int, FIND_NUM> find_a;
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 1, 1000'0000 };
+
+int main()
+{
+	for (int& num : a) {
+		num = uid(dre);
+	}
+	for (int& num : find_a) {
+		num = uid(dre);
+	}
+
+	{
+		std::cout << "데이터를 vector으로 구성하는 중...." << std::endl;
+		std::vector<int> v (a.begin(), a.end());
+		std::cout << "vector의 원소 수 - " << v.size() << '\n';
+
+
+		std::cout << "vector - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		for (int num : find_a) {
+			auto p = std::find(v.begin(), v.end(), num);
+			if (p != v.end()) {
+				++count;
+			}
+		}
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	std::cout << "\n\n";
+
+	{
+		std::cout << "데이터를 multiset으로 구성하는 중...." << std::endl;
+		std::multiset<int> ms(a.begin(), a.end());
+		std::cout << "vector의 원소 수 - " << ms.size() << '\n';
+
+		std::cout << "multiset - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		for (int num : find_a) {
+			if (ms.contains(num)) {
+				++count;
+			}
+		}
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	{
+		std::cout << "데이터를 unordered_multiset으로 구성하는 중...." << std::endl;
+		std::unordered_multiset<int> ums(a.begin(), a.end());
+		std::cout << "vector의 원소 수 - " << ums.size() << '\n';
+
+		std::cout << "multiset - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		for (int num : find_a) {
+			if (ums.contains(num)) {
+				++count;
+			}
+		}
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-10 오후 2:21:02 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	6월 10일 화요일							(14주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// 컨테이너들의 찾기 실력 검증
+// 1. Sequence				- vector		O(N)
+// 2. Associaitve			- multi_set		O(log N)
+// 3. Unordered Associative	- unordered_set	O(1)
+// 
+// 4. 정렬한 vector			- vector
+//------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// int값 1000'0000개 중에서 10'000개의 int를 찾아본다
+
+const int NUM { 1000'0000 };
+const int FIND_NUM{ 10'000 };
+
+std::array<int, NUM> a;
+std::array<int, FIND_NUM> find_a;
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 1, 1000'0000 };
+
+int main()
+{
+	for (int& num : a) {
+		num = uid(dre);
+	}
+	for (int& num : find_a) {
+		num = uid(dre);
+	}
+
+	{
+		std::cout << "vector - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		// 시간
+		auto ib = std::chrono::steady_clock::now();
+		std::cout << "데이터를 vector으로 구성하는 중...." << std::endl;
+		std::vector<int> v (a.begin(), a.end());
+		// 시간
+		auto id = std::chrono::steady_clock::now() - ib;
+		std::cout << "구성하는 데 걸린 시간 - " << id << '\n';
+
+		std::cout << "vector의 원소 수 - " << v.size() << '\n';
+
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		std::cout << "찾는 중...";
+		for (int num : find_a) {
+			auto p = std::find(v.begin(), v.end(), num);
+			if (p != v.end()) {
+				++count;
+			}
+		}
+		std::cout << '\n';
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	std::cout << "\n\n";
+
+	{
+		std::cout << "multiset - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		// 시간
+		auto ib = std::chrono::steady_clock::now();
+		std::cout << "데이터를 vector으로 구성하는 중...." << std::endl;
+		std::multiset<int> ms(a.begin(), a.end());
+		// 시간
+		auto id = std::chrono::steady_clock::now() - ib;
+		std::cout << "구성하는 데 걸린 시간 - " << id << '\n';
+		std::cout << "vector의 원소 수 - " << ms.size() << '\n';
+
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		std::cout << "찾는 중...";
+		for (int num : find_a) {
+			if (ms.contains(num)) {
+				++count;
+			}
+		}
+		std::cout << '\n';
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	std::cout << "\n\n";
+
+	{
+		std::cout << "multiset - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		// 시간
+		auto ib = std::chrono::steady_clock::now();
+		std::cout << "데이터를 vector으로 구성하는 중...." << std::endl;
+		std::unordered_multiset<int> ums(a.begin(), a.end());
+		// 시간
+		auto id = std::chrono::steady_clock::now() - ib;
+		std::cout << "구성하는 데 걸린 시간 - " << id << '\n';
+		std::cout << "vector의 원소 수 - " << ums.size() << '\n';
+
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		std::cout << "찾는 중...";
+		for (int num : find_a) {
+			if (ums.contains(num)) {
+				++count;
+			}
+		}
+		std::cout << '\n';
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	std::cout << "\n\n";
+
+	{
+		std::cout << "vector - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		// 시간
+		auto ib = std::chrono::steady_clock::now();
+		std::cout << "데이터를 vector으로 구성하는 중...." << std::endl;
+		std::vector<int> v(a.begin(), a.end());
+		// 시간
+		auto id = std::chrono::steady_clock::now() - ib;
+		std::cout << "구성하는 데 걸린 시간 - " << id << '\n';
+
+		// 시간
+		auto sb = std::chrono::steady_clock::now();
+		std::cout << "정렬하는 중...";
+		std::sort(v.begin(), v.end());
+		std::cout << '\n';
+		// 시간
+		auto sd = std::chrono::steady_clock::now() - sb;
+		std::cout << "정렬하는 데 걸린 시간 - " << sd << '\n';
+
+		std::cout << "vector의 원소 수 - " << v.size() << '\n';
+
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		std::cout << "찾는 중...";
+		for (int num : find_a) {
+			if (std::binary_search(v.begin(), v.end(), num)) {
+				++count;
+			}
+		
+		}
+		std::cout << '\n';
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	save("main.cpp");
+}
+
+=================================================
+저장한 시간: 2025-06-10 오후 2:23:14 화요일
+=================================================
+
+//------------------------------------------------------------------
+// 2025 STL 화56목78	6월 10일 화요일							(14주 1일)
+// 6월 19일 목요일 15주 2일 - 기말 시험
+//------------------------------------------------------------------
+// VS 버전 - 17.13 이상
+// Release / x64, C++언어표준 - /std::c++latest, SDL 검사 - 아니오
+//------------------------------------------------------------------
+// 컨테이너들의 찾기 실력 검증
+// 1. Sequence				- vector		O(N)
+// 2. Associaitve			- multi_set		O(log N)
+// 3. Unordered Associative	- unordered_set	O(1)
+// 
+// 4. 정렬한 vector			- vector
+//------------------------------------------------------------------
+#include <iostream>
+#include <array>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <random>
+#include <algorithm>
+#include <chrono>
+#include "save.h"
+#include "STRING.h"
+// using namespace std;					// 우리는 이렇게 하면 안된다
+// constexpr란?
+// move semantic
+
+extern bool watching;					// 관찰하려면 true로 설정
+
+// int값 1000'0000개 중에서 10'000개의 int를 찾아본다
+
+const int NUM { 1000'0000 };
+const int FIND_NUM{ 10'000 };
+
+std::array<int, NUM> a;
+std::array<int, FIND_NUM> find_a;
+
+std::default_random_engine dre;
+std::uniform_int_distribution uid{ 1, 1000'0000 };
+
+int main()
+{
+	for (int& num : a) {
+		num = uid(dre);
+	}
+	for (int& num : find_a) {
+		num = uid(dre);
+	}
+
+	{
+		// 시간
+		auto ib = std::chrono::steady_clock::now();
+		std::cout << "데이터를 vector으로 구성하는 중...." << std::endl;
+		std::vector<int> v (a.begin(), a.end());
+		// 시간
+		auto id = std::chrono::steady_clock::now() - ib;
+		std::cout << "구성하는 데 걸린 시간 - " << id << '\n';
+
+		std::cout << "vector의 원소 수 - " << v.size() << '\n';
+
+		std::cout << "vector - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		std::cout << "찾는 중...";
+		for (int num : find_a) {
+			auto p = std::find(v.begin(), v.end(), num);
+			if (p != v.end()) {
+				++count;
+			}
+		}
+		std::cout << '\n';
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	std::cout << "\n\n";
+
+	{
+		// 시간
+		auto ib = std::chrono::steady_clock::now();
+		std::cout << "데이터를 vector으로 구성하는 중...." << std::endl;
+		std::multiset<int> ms(a.begin(), a.end());
+		// 시간
+		auto id = std::chrono::steady_clock::now() - ib;
+		std::cout << "구성하는 데 걸린 시간 - " << id << '\n';
+		std::cout << "vector의 원소 수 - " << ms.size() << '\n';
+
+		std::cout << "multiset - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		std::cout << "찾는 중...";
+		for (int num : find_a) {
+			if (ms.contains(num)) {
+				++count;
+			}
+		}
+		std::cout << '\n';
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	std::cout << "\n\n";
+
+	{
+		// 시간
+		auto ib = std::chrono::steady_clock::now();
+		std::cout << "데이터를 vector으로 구성하는 중...." << std::endl;
+		std::unordered_multiset<int> ums(a.begin(), a.end());
+		// 시간
+		auto id = std::chrono::steady_clock::now() - ib;
+		std::cout << "구성하는 데 걸린 시간 - " << id << '\n';
+		std::cout << "vector의 원소 수 - " << ums.size() << '\n';
+
+		std::cout << "multiset - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		std::cout << "찾는 중...";
+		for (int num : find_a) {
+			if (ums.contains(num)) {
+				++count;
+			}
+		}
+		std::cout << '\n';
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	std::cout << "\n\n";
+
+	{
+		std::cout << "vector - 1000만개의 int 중에서 1만개의 int를 찾아본다" << std::endl;
+		// 시간
+		auto ib = std::chrono::steady_clock::now();
+		std::cout << "데이터를 vector으로 구성하는 중...." << std::endl;
+		std::vector<int> v(a.begin(), a.end());
+		// 시간
+		auto id = std::chrono::steady_clock::now() - ib;
+		std::cout << "구성하는 데 걸린 시간 - " << id << '\n';
+
+		// 시간
+		auto sb = std::chrono::steady_clock::now();
+		std::cout << "정렬하는 중...";
+		std::sort(v.begin(), v.end());
+		std::cout << '\n';
+		// 시간
+		auto sd = std::chrono::steady_clock::now() - sb;
+		std::cout << "정렬하는 데 걸린 시간 - " << sd << '\n';
+
+		std::cout << "vector의 원소 수 - " << v.size() << '\n';
+
+		size_t count{};
+		// 시간
+		auto b = std::chrono::steady_clock::now();
+		std::cout << "찾는 중...";
+		for (int num : find_a) {
+			if (std::binary_search(v.begin(), v.end(), num)) {
+				++count;
+			}
+		
+		}
+		std::cout << '\n';
+		// 시간
+		auto d = std::chrono::steady_clock::now() - b;
+		std::cout << "10000개 중에서 찾은 개수 - " << count << '\n';
+		std::cout << "찾는 데 걸린 시간 - " << d << '\n';
+	}
+
+	save("main.cpp");
+}
